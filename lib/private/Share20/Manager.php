@@ -748,6 +748,9 @@ class Manager implements IManager {
 
 				//Verify the expiration date
 				$share = $this->validateExpirationDateInternal($share);
+			} elseif ($share->getShareType() === IShare::TYPE_REMOTE) {
+				//Verify the expiration date
+				$share = $this->validateExpirationDateInternal($share);
 			} elseif ($share->getShareType() === IShare::TYPE_LINK) {
 				$this->linkCreateChecks($share);
 				$this->setLinkParent($share);
@@ -981,6 +984,12 @@ class Manager implements IManager {
 		} elseif ($share->getShareType() === IShare::TYPE_GROUP) {
 			$this->groupCreateChecks($share);
 
+			if ($share->getExpirationDate() != $originalShare->getExpirationDate()) {
+				//Verify the expiration date
+				$this->validateExpirationDateInternal($share);
+				$expirationDateUpdated = true;
+			}
+		} elseif ($share->getShareType() === IShare::TYPE_REMOTE) {
 			if ($share->getExpirationDate() != $originalShare->getExpirationDate()) {
 				//Verify the expiration date
 				$this->validateExpirationDateInternal($share);
