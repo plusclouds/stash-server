@@ -81,7 +81,7 @@
 				:value.sync="share.password"
 				:disabled="saving"
 				:required="config.enableLinkPasswordByDefault || config.enforcePasswordForPublicLink"
-				:minlength="isPasswordPolicyEnabled && config.passwordPolicy.minLength"
+				:minlength="isPasswordPolicyEnabled && config.passwordPolicy.sharingMinLength"
 				icon=""
 				autocomplete="new-password"
 				@submit="onNewLinkShare">
@@ -791,9 +791,9 @@ export default {
 		 */
 		async generatePassword() {
 			// password policy is enabled, let's request a pass
-			if (this.config.passwordPolicy.api && this.config.passwordPolicy.api.generate) {
+			if (this.config.passwordPolicy.api && this.config.passwordPolicy.api.generateShare) {
 				try {
-					const request = await axios.get(this.config.passwordPolicy.api.generate)
+					const request = await axios.get(this.config.passwordPolicy.api.generateShare)
 					if (request.data.ocs.data.password) {
 						return request.data.ocs.data.password
 					}

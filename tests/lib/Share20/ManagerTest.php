@@ -47,7 +47,7 @@ use OCP\IUser;
 use OCP\IUserManager;
 use OCP\L10N\IFactory;
 use OCP\Mail\IMailer;
-use OCP\Security\Events\ValidatePasswordPolicyEvent;
+use OCP\Security\Events\ValidateSharePasswordPolicyEvent;
 use OCP\Security\IHasher;
 use OCP\Security\ISecureRandom;
 use OCP\Share\Exceptions\ShareNotFound;
@@ -509,8 +509,8 @@ class ManagerTest extends \Test\TestCase {
 
 		$this->eventDispatcher->expects($this->once())->method('dispatch')
 			->willReturnCallback(function (Event $event) {
-				$this->assertInstanceOf(ValidatePasswordPolicyEvent::class, $event);
-				/** @var ValidatePasswordPolicyEvent $event */
+				$this->assertInstanceOf(ValidateSharePasswordPolicyEvent::class, $event);
+				/** @var ValidateSharePasswordPolicyEvent $event */
 				$this->assertSame('password', $event->getPassword());
 			}
 		);
@@ -530,8 +530,8 @@ class ManagerTest extends \Test\TestCase {
 
 		$this->eventDispatcher->expects($this->once())->method('dispatch')
 			->willReturnCallback(function (Event $event) {
-				$this->assertInstanceOf(ValidatePasswordPolicyEvent::class, $event);
-				/** @var ValidatePasswordPolicyEvent $event */
+				$this->assertInstanceOf(ValidateSharePasswordPolicyEvent::class, $event);
+				/** @var ValidateSharePasswordPolicyEvent $event */
 				$this->assertSame('password', $event->getPassword());
 				throw new HintException('message', 'password not accepted');
 			}
