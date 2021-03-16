@@ -782,6 +782,9 @@ class Manager implements IManager {
 						\OCP\Security\ISecureRandom::CHAR_HUMAN_READABLE
 					)
 				);
+			} elseif ($share->getShareType() === IShare::TYPE_REMOTE || $share->getShareType() === IShare::TYPE_REMOTE_GROUP) {
+				//Verify the expiration date
+				$share = $this->validateExpirationDateInternal($share);
 			}
 
 			// Cannot share with the owner
@@ -1025,6 +1028,12 @@ class Manager implements IManager {
 				throw new \InvalidArgumentException('Can’t enable sending the password by Talk without setting a new password');
 			} elseif (empty($plainTextPassword) && $originalShare->getSendPasswordByTalk() && !$share->getSendPasswordByTalk()) {
 				throw new \InvalidArgumentException('Can’t disable sending the password by Talk without setting a new password');
+			}
+		} elseif ($share->getShareType() === IShare::TYPE_REMOTE || $share->getShareType() === IShare::TYPE_REMOTE_GROUP) {
+			if ($share->getExpirationDate() != $originalShare->getExpirationDate()) {
+				//Verify the expiration date
+				$this->validateExpirationDate($share);
+				$expirationDateUpdated = true;
 			}
 		}
 
