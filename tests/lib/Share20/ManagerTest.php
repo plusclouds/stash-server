@@ -484,7 +484,7 @@ class ManagerTest extends \Test\TestCase {
 
 	public function testVerifyPasswordNullButEnforced() {
 		$this->expectException(\InvalidArgumentException::class);
-		$this->expectExceptionMessage('Passwords are enforced for link shares');
+		$this->expectExceptionMessage('Passwords are enforced for link and mail shares');
 
 		$this->config->method('getAppValue')->willReturnMap([
 			['core', 'shareapi_enforce_links_password', 'no', 'yes'],
@@ -3464,6 +3464,7 @@ class ManagerTest extends \Test\TestCase {
 		$manager->expects($this->once())->method('linkCreateChecks');
 		$manager->expects($this->never())->method('validateExpirationDate');
 
+		// If the password is empty, we have nothing to hash
 		$this->hasher->expects($this->never())
 			->method('hash');
 
@@ -3531,11 +3532,12 @@ class ManagerTest extends \Test\TestCase {
 		$manager->expects($this->once())->method('canShare')->willReturn(true);
 		$manager->expects($this->once())->method('getShareById')->with('foo:42')->willReturn($originalShare);
 		$manager->expects($this->once())->method('generalCreateChecks')->with($share);
-		$manager->expects($this->never())->method('verifyPassword');
+		$manager->expects($this->once())->method('verifyPassword');
 		$manager->expects($this->never())->method('pathCreateChecks');
 		$manager->expects($this->once())->method('linkCreateChecks');
 		$manager->expects($this->never())->method('validateExpirationDate');
 
+		// If the password is empty, we have nothing to hash
 		$this->hasher->expects($this->never())
 			->method('hash');
 
@@ -3603,11 +3605,12 @@ class ManagerTest extends \Test\TestCase {
 		$manager->expects($this->once())->method('canShare')->willReturn(true);
 		$manager->expects($this->once())->method('getShareById')->with('foo:42')->willReturn($originalShare);
 		$manager->expects($this->once())->method('generalCreateChecks')->with($share);
-		$manager->expects($this->never())->method('verifyPassword');
+		$manager->expects($this->once())->method('verifyPassword');
 		$manager->expects($this->never())->method('pathCreateChecks');
 		$manager->expects($this->once())->method('linkCreateChecks');
 		$manager->expects($this->never())->method('validateExpirationDate');
 
+		// If the password is empty, we have nothing to hash
 		$this->hasher->expects($this->never())
 			->method('hash');
 
@@ -3649,7 +3652,7 @@ class ManagerTest extends \Test\TestCase {
 		$originalShare = $this->manager->newShare();
 		$originalShare->setShareType(IShare::TYPE_EMAIL)
 			->setPermissions(\OCP\Constants::PERMISSION_ALL)
-			->setPassword('passwordHash')
+			->setPassword('password')
 			->setSendPasswordByTalk(false);
 
 		$tomorrow = new \DateTime();
@@ -3680,11 +3683,9 @@ class ManagerTest extends \Test\TestCase {
 		$manager->expects($this->once())->method('linkCreateChecks');
 		$manager->expects($this->never())->method('validateExpirationDate');
 
-		$this->hasher->expects($this->once())
-			->method('verify')
-			->with('password', 'passwordHash')
-			->willReturn(true);
-
+		// If the old & new passwords are the same, we don't do anything
+		$this->hasher->expects($this->never())
+			->method('verify');
 		$this->hasher->expects($this->never())
 			->method('hash');
 
@@ -3742,7 +3743,7 @@ class ManagerTest extends \Test\TestCase {
 			->setToken('token')
 			->setSharedBy('owner')
 			->setShareOwner('owner')
-			->setPassword('password')
+			->setPassword('passwordHash')
 			->setSendPasswordByTalk(false)
 			->setExpirationDate($tomorrow)
 			->setNode($file)
@@ -3751,16 +3752,14 @@ class ManagerTest extends \Test\TestCase {
 		$manager->expects($this->once())->method('canShare')->willReturn(true);
 		$manager->expects($this->once())->method('getShareById')->with('foo:42')->willReturn($originalShare);
 		$manager->expects($this->once())->method('generalCreateChecks')->with($share);
-		$manager->expects($this->once())->method('verifyPassword');
-		$manager->expects($this->once())->method('pathCreateChecks');
+		$manager->expects($this->never())->method('verifyPassword');
+		$manager->expects($this->never())->method('pathCreateChecks');
 		$manager->expects($this->once())->method('linkCreateChecks');
-		$manager->expects($this->once())->method('validateExpirationDate');
+		$manager->expects($this->never())->method('validateExpirationDate');
 
-		$this->hasher->expects($this->once())
-			->method('verify')
-			->with('password', 'passwordHash')
-			->willReturn(true);
-
+		// If the old & new passwords are the same, we don't do anything
+		$this->hasher->expects($this->never())
+			->method('verify');
 		$this->hasher->expects($this->never())
 			->method('hash');
 
@@ -3827,14 +3826,14 @@ class ManagerTest extends \Test\TestCase {
 		$manager->expects($this->once())->method('canShare')->willReturn(true);
 		$manager->expects($this->once())->method('getShareById')->with('foo:42')->willReturn($originalShare);
 		$manager->expects($this->once())->method('generalCreateChecks')->with($share);
-		$manager->expects($this->once())->method('verifyPassword');
-		$manager->expects($this->once())->method('pathCreateChecks');
+		$manager->expects($this->never())->method('verifyPassword');
+		$manager->expects($this->never())->method('pathCreateChecks');
 		$manager->expects($this->once())->method('linkCreateChecks');
-		$manager->expects($this->once())->method('validateExpirationDate');
+		$manager->expects($this->never())->method('validateExpirationDate');
 
+		// If the old & new passwords are the same, we don't do anything
 		$this->hasher->expects($this->never())
 			->method('verify');
-
 		$this->hasher->expects($this->never())
 			->method('hash');
 
