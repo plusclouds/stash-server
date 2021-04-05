@@ -8,7 +8,7 @@ OC.L10N.register(
     "Sending…" : "جارٍ الإرسال …",
     "Email sent" : "تم ارسال البريد الالكتروني",
     "Private" : "خاص بك",
-    "Public" : "عمومي",
+    "Local" : "المحلي",
     "Verify" : "تحقق",
     "Verifying …" : "عملية التحقق جارية …",
     "Unable to change password" : "لا يمكن تغيير كلمة المرور",
@@ -203,7 +203,6 @@ OC.L10N.register(
     "Expire after " : "ينتهي بعد",
     "days" : "أيام",
     "Enforce expiration date" : "فرض تاريخ نهاية صلاحية",
-    "Allow users to share via link" : "السماح للمستخدم بمشاركة الملف عن طريق رابط",
     "Allow public uploads" : "السماح بالرفع للعامة ",
     "Always ask for a password" : "أطلب دائما كلمة السر",
     "Enforce password protection" : "فرض الحماية بكلمة مرور",
@@ -245,11 +244,11 @@ OC.L10N.register(
     "Change password" : "عدل كلمة السر",
     "An error occurred. Please upload an ASCII-encoded PEM certificate." : "خطأ غير متوقع. يرجى رفع شهادة ASCII-encoded PEM.",
     "Valid until {date}" : "صالح إلى غاية {date}",
-    "Local" : "المحلي",
     "Only visible to local users" : "ظاهر فقط للمستخدِمين المحليين",
     "Only visible to you" : "ظاهر فقط بالنسبة لك",
     "Contacts" : "جهات الإتصال",
     "Visible to local users and to trusted servers" : "ظاهر فقط للمستخدمين المحليين و للخوادم الموثوق فيها",
+    "Public" : "عمومي",
     "by" : "من قبل",
     "SSL Root Certificates" : "شهادات أمان الـ SSL الجذرية",
     "Common Name" : "الإسم الشائع",
@@ -257,6 +256,7 @@ OC.L10N.register(
     "Issued By" : "سُلّمت مِن طرف",
     "Valid until %s" : "صالحة إلى غاية %s",
     "Import root certificate" : "إستيراد شهادة جذرية",
-    "Execute one task with each page loaded" : "قم بتنفيذ مهمة واحدة مع كل صفحة تم تحميلها"
+    "Execute one task with each page loaded" : "قم بتنفيذ مهمة واحدة مع كل صفحة تم تحميلها",
+    "Allow users to share via link" : "السماح للمستخدم بمشاركة الملف عن طريق رابط"
 },
 "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;");
