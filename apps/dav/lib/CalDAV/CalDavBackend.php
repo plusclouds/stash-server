@@ -19,6 +19,7 @@
  * @author Thomas Citharel <nextcloud@tcit.fr>
  * @author Thomas Müller <thomas.mueller@tmit.eu>
  * @author Vinicius Cubas Brand <vinicius@eita.org.br>
+ * @author Simon Spannagel <simonspa@kth.se>
  *
  * @license AGPL-3.0
  *
@@ -256,7 +257,11 @@ class CalDavBackend extends AbstractBackend implements SyncSupport, Subscription
 		}
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = (int)$result->fetchOne();
+=======
+		$column = (int)$result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		return $column;
 	}
@@ -365,7 +370,11 @@ class CalDavBackend extends AbstractBackend implements SyncSupport, Subscription
 			->setParameter('type', 'calendar')
 			->setParameter('principaluri', $principals, \Doctrine\DBAL\Connection::PARAM_STR_ARRAY);
 
+<<<<<<< HEAD
 		$result = $query->execute();
+=======
+		$result	= $query->execute();
+>>>>>>> stable20
 
 		$readOnlyPropertyName = '{' . \OCA\DAV\DAV\Sharing\Plugin::NS_OWNCLOUD . '}read-only';
 		while ($row = $result->fetch()) {
@@ -511,7 +520,11 @@ class CalDavBackend extends AbstractBackend implements SyncSupport, Subscription
 
 		while ($row = $result->fetch()) {
 			$row['principaluri'] = (string) $row['principaluri'];
+<<<<<<< HEAD
 			[, $name] = Uri\split($row['principaluri']);
+=======
+			list(, $name) = Uri\split($row['principaluri']);
+>>>>>>> stable20
 			$row['displayname'] = $row['displayname'] . "($name)";
 			$components = [];
 			if ($row['components']) {
@@ -578,7 +591,11 @@ class CalDavBackend extends AbstractBackend implements SyncSupport, Subscription
 		}
 
 		$row['principaluri'] = (string) $row['principaluri'];
+<<<<<<< HEAD
 		[, $name] = Uri\split($row['principaluri']);
+=======
+		list(, $name) = Uri\split($row['principaluri']);
+>>>>>>> stable20
 		$row['displayname'] = $row['displayname'] . ' ' . "($name)";
 		$components = [];
 		if ($row['components']) {
@@ -2394,7 +2411,11 @@ class CalDavBackend extends AbstractBackend implements SyncSupport, Subscription
 			->from($table)
 			->where($query->expr()->eq('id', $query->createNamedParameter($calendarId)));
 		$result = $query->execute();
+<<<<<<< HEAD
 		$syncToken = (int)$result->fetchOne();
+=======
+		$syncToken = (int)$result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 
 		$query = $this->db->getQueryBuilder();

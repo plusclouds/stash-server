@@ -348,6 +348,7 @@ import escapeHTML from 'escape-html'
 		/**
 		 * Format a remote address
 		 *
+<<<<<<< HEAD
 		 * @param {String} shareWith userid, full remote share, or whatever
 		 * @param {String} shareWithDisplayName
 		 * @param {String} message
@@ -355,6 +356,16 @@ import escapeHTML from 'escape-html'
 		 */
 		_formatRemoteShare: function(shareWith, shareWithDisplayName, message) {
 			var parts = OCA.Sharing.Util._REMOTE_OWNER_REGEXP.exec(shareWith)
+=======
+		* @param {String} shareWith userid, full remote share, or whatever
+		* @param {String} shareWithDisplayName
+		* @param {String} message
+		* @returns {String} HTML code to display
+		*/
+		_formatRemoteShare: function(shareWith, shareWithDisplayName, message) {
+			var parts = OCA.Sharing.Util._REMOTE_OWNER_REGEXP.exec(shareWith)
+			console.error(parts);
+>>>>>>> stable20
 			if (!parts || !parts[7]) {
 				// display avatar of the user
 				var avatar = '<span class="avatar" data-username="' + escapeHTML(shareWith) + '" title="' + message + ' ' + escapeHTML(shareWithDisplayName) + '"></span>'

@@ -548,7 +548,11 @@ class CacheTest extends TestCase {
 		self::loginHelper(self::TEST_FILES_SHARING_API_USER2);
 
 		/** @var SharedStorage $sharedStorage */
+<<<<<<< HEAD
 		[$sharedStorage] = \OC\Files\Filesystem::resolvePath('/' . self::TEST_FILES_SHARING_API_USER2 . '/files/sub');
+=======
+		list($sharedStorage) = \OC\Files\Filesystem::resolvePath('/' . self::TEST_FILES_SHARING_API_USER2 . '/files/sub');
+>>>>>>> stable20
 
 		$results = $sharedStorage->getCache()->search("foo.txt");
 		$this->assertCount(1, $results);

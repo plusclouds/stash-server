@@ -250,6 +250,38 @@ export default {
 		},
 	},
 
+<<<<<<< HEAD
+=======
+	watch: {
+		// update the sidebar data
+		async file(curr, prev) {
+			this.resetData()
+			if (curr && curr.trim() !== '') {
+				try {
+					this.fileInfo = await FileInfo(this.davPath)
+					// adding this as fallback because other apps expect it
+					this.fileInfo.dir = this.file.split('/').slice(0, -1).join('/')
+
+					// DEPRECATED legacy views
+					// TODO: remove
+					this.views.forEach(view => {
+						view.setFileInfo(this.fileInfo)
+					})
+
+					this.$nextTick(() => {
+						if (this.$refs.tabs) {
+							this.$refs.tabs.updateTabs()
+						}
+					})
+				} catch (error) {
+					this.error = t('files', 'Error while loading the file data')
+					console.error('Error while loading the file data', error)
+				}
+			}
+		},
+	},
+
+>>>>>>> stable20
 	methods: {
 		/**
 		 * Can this tab be displayed ?

@@ -49,7 +49,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals('foobar', $column);
 	}
@@ -62,7 +66,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(md5('foobar'), $column);
 	}
@@ -75,7 +83,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals('oo', $column);
 	}
@@ -88,7 +100,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals('oobar', $column);
 	}
@@ -101,7 +117,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals('foobar', $column);
 	}
@@ -114,7 +134,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(3, $column);
 	}
@@ -127,7 +151,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(1, $column);
 	}
@@ -140,7 +168,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$column = $result->fetchOne();
+=======
+		$column = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertGreaterThan(1, $column);
 	}
@@ -176,7 +208,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$row = $result->fetchOne();
+=======
+		$row = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(null, $row);
 	}
@@ -192,7 +228,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$row = $result->fetchOne();
+=======
+		$row = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(null, $row);
 	}
@@ -211,7 +251,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$row = $result->fetchOne();
+=======
+		$row = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(20, $row);
 	}
@@ -230,7 +274,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$row = $result->fetchOne();
+=======
+		$row = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(10, $row);
 	}
@@ -243,7 +291,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$row = $result->fetchOne();
+=======
+		$row = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(2, $row);
 	}
@@ -256,7 +308,11 @@ class FunctionBuilderTest extends TestCase {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$row = $result->fetchOne();
+=======
+		$row = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 		$this->assertEquals(1, $row);
 	}

@@ -46,7 +46,11 @@ class CleanPreviewsTest extends TestCase {
 	/** @var CleanPreviews */
 	private $repair;
 
+<<<<<<< HEAD
 	public function setUp() {
+=======
+	public function setUp(): void {
+>>>>>>> stable20
 		parent::setUp();
 
 		$this->jobList = $this->createMock(IJobList::class);

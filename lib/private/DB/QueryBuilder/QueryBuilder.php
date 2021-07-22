@@ -254,6 +254,10 @@ class QueryBuilder implements IQueryBuilder {
 			}
 		}
 
+<<<<<<< HEAD
+=======
+		return $this->queryBuilder->execute();
+>>>>>>> stable20
 		$numberOfParameters = 0;
 		$hasTooLargeArrayParameter = false;
 		foreach ($this->getParameters() as $parameter) {
@@ -283,12 +287,15 @@ class QueryBuilder implements IQueryBuilder {
 				'app' => 'core',
 			]);
 		}
+<<<<<<< HEAD
 
 		$result = $this->queryBuilder->execute();
 		if (is_int($result)) {
 			return $result;
 		}
 		return new ResultAdapter($result);
+=======
+>>>>>>> stable20
 	}
 
 	public function executeQuery(): IResult {

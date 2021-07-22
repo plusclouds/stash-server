@@ -34,7 +34,11 @@ OC.L10N.register(
     "Name" : "名稱",
     "Reset to default" : "恢復預設值",
     "Web link" : "網路連結",
+<<<<<<< HEAD
     "https://…" : "https://…",
+=======
+    "https://…" : "https：//…",
+>>>>>>> stable20
     "Slogan" : "標語",
     "Color" : "顏色",
     "Logo" : "Logo",

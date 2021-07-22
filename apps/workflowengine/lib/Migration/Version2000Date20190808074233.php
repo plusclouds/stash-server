@@ -6,7 +6,11 @@ namespace OCA\WorkflowEngine\Migration;
 
 use Closure;
 use Doctrine\DBAL\Schema\Table;
+<<<<<<< HEAD
 use OCP\DB\Types;
+=======
+use Doctrine\DBAL\Types\Types;
+>>>>>>> stable20
 use OCA\WorkflowEngine\Entity\File;
 use OCP\DB\ISchemaWrapper;
 use OCP\Migration\IOutput;

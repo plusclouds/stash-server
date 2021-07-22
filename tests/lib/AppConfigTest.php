@@ -10,7 +10,10 @@
 namespace Test;
 
 use OC\AppConfig;
+<<<<<<< HEAD
 use OC\DB\Connection;
+=======
+>>>>>>> stable20
 use OCP\IConfig;
 
 /**

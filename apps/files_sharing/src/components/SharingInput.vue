@@ -129,7 +129,11 @@ export default {
 				return t('files_sharing', 'Name or email …')
 			}
 
+<<<<<<< HEAD
 			return t('files_sharing', 'Name, email, or Federated Cloud ID …')
+=======
+			return t('files_sharing', 'Name, email, or federated cloud ID …')
+>>>>>>> stable20
 		},
 
 		isValidQuery() {
@@ -407,9 +411,15 @@ export default {
 		 * @returns {Object}
 		 */
 		formatForMultiselect(result) {
+<<<<<<< HEAD
 			let subtitle
 			if (result.value.shareType === this.SHARE_TYPES.SHARE_TYPE_USER && this.config.shouldAlwaysShowUnique) {
 				subtitle = result.shareWithDisplayNameUnique ?? ''
+=======
+			let desc
+			if (result.value.shareType === this.SHARE_TYPES.SHARE_TYPE_USER && this.config.shouldAlwaysShowUnique) {
+				desc = result.shareWithDisplayNameUnique ?? ''
+>>>>>>> stable20
 			} else if ((result.value.shareType === this.SHARE_TYPES.SHARE_TYPE_REMOTE
 					|| result.value.shareType === this.SHARE_TYPES.SHARE_TYPE_REMOTE_GROUP
 			) && result.value.server) {
@@ -427,7 +437,11 @@ export default {
 				user: result.uuid || result.value.shareWith,
 				isNoUser: result.value.shareType !== this.SHARE_TYPES.SHARE_TYPE_USER,
 				displayName: result.name || result.label,
+<<<<<<< HEAD
 				subtitle,
+=======
+				desc,
+>>>>>>> stable20
 				shareWithDisplayNameUnique: result.shareWithDisplayNameUnique || '',
 				icon: this.shareTypeToIcon(result.value.shareType),
 			}

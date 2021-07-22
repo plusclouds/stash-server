@@ -183,6 +183,10 @@ OC.L10N.register(
     "Create a new share link" : "Utwórz nowy link udostępniania",
     "{shareWith} by {initiator}" : "{shareWith} przez {initiator}",
     "Shared via link by {initiator}" : "Udostępnione przez link od {initiator}",
+<<<<<<< HEAD
+=======
+    "Mail share ({label})" : "Udostępnij pocztę ({label})",
+>>>>>>> stable20
     "Share link ({label})" : "Udostępnij link ({label})",
     "Share link" : "Udostępnij link",
     "Error, please enter proper password and/or expiration date" : "Błąd, wprowadź prawidłowe hasło i/lub datę ważności",

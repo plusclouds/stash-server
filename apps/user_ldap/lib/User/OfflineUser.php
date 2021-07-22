@@ -92,7 +92,10 @@ class OfflineUser {
 		$this->ocName = $ocName;
 		$this->config = $config;
 		$this->mapping = $mapping;
+<<<<<<< HEAD
 		$this->shareManager = $shareManager;
+=======
+>>>>>>> stable20
 	}
 
 	/**
@@ -134,7 +137,11 @@ class OfflineUser {
 	 * @return string
 	 */
 	public function getUID() {
+<<<<<<< HEAD
 		if ($this->uid === null) {
+=======
+		if (!isset($this->uid)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return $this->uid;
@@ -145,7 +152,11 @@ class OfflineUser {
 	 * @return string
 	 */
 	public function getDN() {
+<<<<<<< HEAD
 		if ($this->dn === null) {
+=======
+		if (!isset($this->dn)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return $this->dn;
@@ -156,7 +167,11 @@ class OfflineUser {
 	 * @return string
 	 */
 	public function getDisplayName() {
+<<<<<<< HEAD
 		if ($this->displayName === null) {
+=======
+		if (!isset($this->displayName)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return $this->displayName;
@@ -167,7 +182,11 @@ class OfflineUser {
 	 * @return string
 	 */
 	public function getEmail() {
+<<<<<<< HEAD
 		if ($this->email === null) {
+=======
+		if (!isset($this->email)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return $this->email;
@@ -178,7 +197,11 @@ class OfflineUser {
 	 * @return string
 	 */
 	public function getHomePath() {
+<<<<<<< HEAD
 		if ($this->homePath === null) {
+=======
+		if (!isset($this->homePath)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return $this->homePath;
@@ -189,7 +212,11 @@ class OfflineUser {
 	 * @return int
 	 */
 	public function getLastLogin() {
+<<<<<<< HEAD
 		if ($this->lastLogin === null) {
+=======
+		if (!isset($this->lastLogin)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return (int)$this->lastLogin;
@@ -200,7 +227,11 @@ class OfflineUser {
 	 * @return int
 	 */
 	public function getDetectedOn() {
+<<<<<<< HEAD
 		if ($this->foundDeleted === null) {
+=======
+		if (!isset($this->foundDeleted)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return (int)$this->foundDeleted;
@@ -211,7 +242,11 @@ class OfflineUser {
 	 * @return bool
 	 */
 	public function getHasActiveShares() {
+<<<<<<< HEAD
 		if ($this->hasActiveShares === null) {
+=======
+		if (!isset($this->hasActiveShares)) {
+>>>>>>> stable20
 			$this->fetchDetails();
 		}
 		return $this->hasActiveShares;
@@ -244,6 +279,7 @@ class OfflineUser {
 	 * $this->hasActiveShares
 	 */
 	protected function determineShares() {
+<<<<<<< HEAD
 		$shareInterface = new \ReflectionClass(IShare::class);
 		$shareConstants = $shareInterface->getConstants();
 
@@ -267,5 +303,25 @@ class OfflineUser {
 		}
 
 		$this->hasActiveShares = false;
+=======
+		$query = $this->db->prepare('
+			SELECT `uid_owner`
+			FROM `*PREFIX*share`
+			WHERE `uid_owner` = ?
+		', 1);
+		$query->execute([$this->ocName]);
+		if ($query->rowCount() > 0) {
+			$this->hasActiveShares = true;
+			return;
+		}
+
+		$query = $this->db->prepare('
+			SELECT `owner`
+			FROM `*PREFIX*share_external`
+			WHERE `owner` = ?
+		', 1);
+		$query->execute([$this->ocName]);
+		$this->hasActiveShares = $query->rowCount() > 0;
+>>>>>>> stable20
 	}
 }

@@ -368,6 +368,7 @@ class UsersController extends Controller {
 									?string $twitter = null,
 									?string $twitterScope = null
 	) {
+<<<<<<< HEAD
 		$user = $this->userSession->getUser();
 		if (!$user instanceof IUser) {
 			return new DataResponse(
@@ -381,6 +382,8 @@ class UsersController extends Controller {
 			);
 		}
 
+=======
+>>>>>>> stable20
 		$email = strtolower($email);
 		if (!empty($email) && !$this->mailer->validateMailAddress($email)) {
 			return new DataResponse(
@@ -479,8 +482,13 @@ class UsersController extends Controller {
 
 		$oldEmailAddress = $user->getEMailAddress();
 		$oldEmailAddress = is_null($oldEmailAddress) ? '' : strtolower($oldEmailAddress);
+<<<<<<< HEAD
 		if (isset($data[IAccountManager::PROPERTY_EMAIL]['value'])
 			&& $oldEmailAddress !== $data[IAccountManager::PROPERTY_EMAIL]['value']
+=======
+		if (isset($data[AccountManager::PROPERTY_EMAIL]['value'])
+			&& $oldEmailAddress !== $data[AccountManager::PROPERTY_EMAIL]['value']
+>>>>>>> stable20
 		) {
 			// this is the only permission a backend provides and is also used
 			// for the permission of setting a email address

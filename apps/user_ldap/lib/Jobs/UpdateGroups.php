@@ -38,6 +38,7 @@ use OCP\IDBConnection;
 use OCP\IGroupManager;
 use OCP\ILogger;
 use OCP\IUser;
+<<<<<<< HEAD
 use OCP\IUserManager;
 use Psr\Log\LoggerInterface;
 
@@ -73,6 +74,8 @@ class UpdateGroups extends TimedJob {
 		$this->logger = $logger;
 		$this->dbc = $dbc;
 	}
+=======
+>>>>>>> stable20
 
 	/**
 	 * @return int
@@ -152,6 +155,7 @@ class UpdateGroups extends TimedJob {
 
 			$groupObject = $this->groupManager->get($group);
 			foreach (array_diff($knownUsers, $actualUsers) as $removedUser) {
+<<<<<<< HEAD
 				$userObject = $this->userManager->get($removedUser);
 				if ($userObject instanceof IUser) {
 					$this->dispatcher->dispatchTyped(new UserRemovedEvent($groupObject, $userObject));
@@ -179,6 +183,25 @@ class UpdateGroups extends TimedJob {
 						'group' => $group
 					]
 				);
+=======
+				$userObject = $userManager->get($removedUser);
+				if ($userObject instanceof IUser) {
+					$dispatcher->dispatchTyped(new UserRemovedEvent($groupObject, $userObject));
+				}
+				\OCP\Util::writeLog('user_ldap',
+				'bgJ "updateGroups" – "'.$removedUser.'" removed from "'.$group.'".',
+					ILogger::INFO);
+				$hasChanged = true;
+			}
+			foreach (array_diff($actualUsers, $knownUsers) as $addedUser) {
+				$userObject = $userManager->get($addedUser);
+				if ($userObject instanceof IUser) {
+					$dispatcher->dispatchTyped(new UserAddedEvent($groupObject, $userObject));
+				}
+				\OCP\Util::writeLog('user_ldap',
+				'bgJ "updateGroups" – "'.$addedUser.'" added to "'.$group.'".',
+					ILogger::INFO);
+>>>>>>> stable20
 				$hasChanged = true;
 			}
 			if ($hasChanged) {

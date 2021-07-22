@@ -113,8 +113,13 @@ class SCSSCacher {
 								IconsCacher $iconsCacher,
 								ITimeFactory $timeFactory,
 								AppConfig $appConfig) {
+<<<<<<< HEAD
 		$this->logger = $logger;
 		$this->appData = $appDataFactory->get('css');
+=======
+		$this->logger       = $logger;
+		$this->appData      = $appDataFactory->get('css');
+>>>>>>> stable20
 		$this->urlGenerator = $urlGenerator;
 		$this->config = $config;
 		$this->defaults = $defaults;
@@ -282,9 +287,14 @@ class SCSSCacher {
 	 * @return bool
 	 */
 	private function variablesChanged(): bool {
+<<<<<<< HEAD
 		$cachedVariables = $this->config->getAppValue('core', 'theming.variables', '');
 		$injectedVariables = $this->getInjectedVariables($cachedVariables);
 		if ($cachedVariables !== md5($injectedVariables)) {
+=======
+		$injectedVariables = $this->getInjectedVariables();
+		if ($this->config->getAppValue('core', 'theming.variables') !== md5($injectedVariables)) {
+>>>>>>> stable20
 			$this->logger->debug('SCSSCacher::variablesChanged storedVariables: ' . json_encode($this->config->getAppValue('core', 'theming.variables')) . ' currentInjectedVariables: ' . json_encode($injectedVariables), ['app' => 'scss_cacher']);
 			$this->config->setAppValue('core', 'theming.variables', md5($injectedVariables));
 			$this->resetCache();

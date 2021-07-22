@@ -107,7 +107,11 @@ class CalDAVRemoveEmptyValue implements IRepairStep {
 			$query->select($query->func()->count('*', 'num_entries'))
 				->from('calendarobjects');
 			$result = $query->execute();
+<<<<<<< HEAD
 			$count = $result->fetchOne();
+=======
+			$count = $result->fetchColumn();
+>>>>>>> stable20
 			$result->closeCursor();
 
 			$numChunks = ceil($count / $chunkSize);

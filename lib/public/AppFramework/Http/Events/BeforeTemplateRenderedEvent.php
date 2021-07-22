@@ -61,7 +61,11 @@ class BeforeTemplateRenderedEvent extends Event {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @since 20.0.0
+=======
+	 * @since 20.0.1
+>>>>>>> stable20
 	 */
 	public function getResponse(): TemplateResponse {
 		return $this->response;

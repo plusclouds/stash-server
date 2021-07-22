@@ -133,7 +133,11 @@ class RemotePluginTest extends TestCase {
 			->method('search')
 			->willReturn([]);
 
+<<<<<<< HEAD
 		[$remoteUser, $remoteUrl] = $this->plugin->splitUserRemote($remote);
+=======
+		list($remoteUser, $remoteUrl) = $this->plugin->splitUserRemote($remote);
+>>>>>>> stable20
 		$this->assertSame($expectedUser, $remoteUser);
 		$this->assertSame($expectedUrl, $remoteUrl);
 	}

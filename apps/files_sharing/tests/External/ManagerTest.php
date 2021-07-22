@@ -152,7 +152,11 @@ class ManagerTest extends TestCase {
 			'shareType' => IShare::TYPE_USER,
 			'accepted' => false,
 			'user' => $this->uid,
+<<<<<<< HEAD
 			'remoteId' => '2342'
+=======
+			'remote_id' => '2342'
+>>>>>>> stable20
 		];
 		$shareData2 = $shareData1;
 		$shareData2['token'] = 'token2';

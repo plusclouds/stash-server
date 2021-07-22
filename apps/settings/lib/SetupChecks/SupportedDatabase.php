@@ -29,7 +29,11 @@ namespace OCA\Settings\SetupChecks;
 use Doctrine\DBAL\Platforms\MariaDb1027Platform;
 use Doctrine\DBAL\Platforms\MySQL57Platform;
 use Doctrine\DBAL\Platforms\MySQL80Platform;
+<<<<<<< HEAD
 use Doctrine\DBAL\Platforms\MySQLPlatform;
+=======
+use Doctrine\DBAL\Platforms\MySqlPlatform;
+>>>>>>> stable20
 use Doctrine\DBAL\Platforms\OraclePlatform;
 use Doctrine\DBAL\Platforms\PostgreSQL100Platform;
 use Doctrine\DBAL\Platforms\PostgreSQL94Platform;
@@ -61,7 +65,11 @@ class SupportedDatabase {
 			case MySQL80Platform::class: # extends MySQL57Platform
 			case MySQL57Platform::class: # extends MySQLPlatform
 			case MariaDb1027Platform::class: # extends MySQLPlatform
+<<<<<<< HEAD
 			case MySQLPlatform::class:
+=======
+			case MySqlPlatform::class:
+>>>>>>> stable20
 				$result = $this->connection->prepare('SHOW VARIABLES LIKE "version";');
 				$result->execute();
 				$row = $result->fetch();

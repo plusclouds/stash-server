@@ -2,7 +2,12 @@
 /**
  * @copyright Copyright (c) 2016 Morris Jobke <hey@morrisjobke.de>
  *
+<<<<<<< HEAD
  * @author Julius Härtl <jus@bitgrid.net>
+=======
+ * @author Joas Schilling <coding@schilljs.com>
+ * @author Morris Jobke <hey@morrisjobke.de>
+>>>>>>> stable20
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -17,7 +22,11 @@
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
+<<<<<<< HEAD
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+>>>>>>> stable20
  *
  */
 

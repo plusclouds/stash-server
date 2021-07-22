@@ -8,10 +8,13 @@ OC.L10N.register(
     "Sending…" : "Siunčiama…",
     "Email sent" : "El. paštas išsiųstas",
     "Private" : "Privatu",
+<<<<<<< HEAD
     "Don't synchronize to servers" : "Nesinchronizuoti į serverius",
     "Trusted" : "Patikimas",
+=======
+    "Local" : "Vietinis",
+>>>>>>> stable20
     "Only synchronize to trusted servers" : "Sinchronizuoti tik į patikimus serverius",
-    "Public" : "Vieša",
     "Synchronize to trusted servers and the global and public address book" : "Sinchronizuoti į patikimus serverius ir į visuotinę bei viešą adresų knygą",
     "Verify" : "Patikrinti",
     "Verifying …" : "Tikrinama...",
@@ -75,6 +78,7 @@ OC.L10N.register(
     "Email could not be sent. Check your mail server log" : "El. laiškas nebuvo išsiųstas. Peržiūrėkite savo pašto serverio žurnalą.",
     "A problem occurred while sending the email. Please revise your settings. (Error: %s)" : "Siunčiant el. laišką atsirado problemų. Peržiūrėkite savo nustatymus. (Klaida: %s)",
     "You need to set your user email before being able to send test emails." : "Prieš galėdami siųsti bandomuosius el. laiškus, turite nusistatyti savo naudotojo el. paštą.",
+    "Invalid user" : "Neteisingas naudotojas",
     "Invalid mail address" : "Neteisingas pašto adresas",
     "Settings saved" : "Nustatymai įrašyti",
     "Unable to change full name" : "Nepavyko pakeisti vardo ir pavardės",
@@ -358,11 +362,9 @@ OC.L10N.register(
     "Expire after " : "Nustoja galioti po ",
     "days" : "dienos",
     "Enforce expiration date" : "Priverstinė galiojimo pabaigos data",
-    "Allow users to share via link" : "Leisti naudotojams bendrinti per nuorodą",
     "Allow public uploads" : "Leisti viešus įkėlimus",
     "Always ask for a password" : "Visada prašyti slaptažodžio",
     "Enforce password protection" : "Priverstinė apsauga slaptažodžiu",
-    "Set default expiration date for link shares" : "Nustatyti numatytąją galiojimo pabaigos datą viešiniams per nuorodą",
     "Allow resharing" : "Leisti bendrinti iš naujo",
     "Allow sharing with groups" : "Leisti bendrinti su grupėmis",
     "Restrict users to only share with users in their groups" : "Apriboti naudotojus ir leisti jiems bendrinti tik su naudotojais savo grupėse",
@@ -410,11 +412,11 @@ OC.L10N.register(
     "Use a second factor besides your password to increase security for your account." : "Be savo slaptažodžio naudokite ir antrąjį faktorių, kad padidintumėte savo paskyros saugumą.",
     "An error occurred. Please upload an ASCII-encoded PEM certificate." : "Įvyko klaida. Įkelkite ASCII koduotą PEM liudijimą.",
     "Valid until {date}" : "Galioja iki {date}",
-    "Local" : "Vietinis",
     "Only visible to local users" : "Matoma tik vietiniams naudotojams",
     "Only visible to you" : "Matoma tik jums",
     "Contacts" : "Adresatai",
     "Visible to local users and to trusted servers" : "Matoma tik vietiniams naudotojams ir patikimiems serveriams",
+    "Public" : "Vieša",
     "Will be synced to a global and public address book" : "Bus sinchronizuota į visuotinę ir viešą adresų knygą",
     "by" : "pagal",
     "SSL Root Certificates" : "SSL šakniniai sertifikatai",
@@ -424,9 +426,19 @@ OC.L10N.register(
     "Valid until %s" : "Galioja iki %s",
     "Import root certificate" : "Importuoti šakninius sertifikatus",
     "Execute one task with each page loaded" : "Įvykdyti vieną užduotį su kiekvieno puslapio įkėlimu",
+<<<<<<< HEAD
     "Allow username autocompletion in share dialog. If this is disabled the full username or email address needs to be entered." : "Leisti bendrinimo dialoge automatinį naudotojo vardų užbaigimą. Jeigu tai išjungta, reikės įvesti pilną naudotojo vardą ar el. pašto adresą.",
     "Restrict username autocompletion to users within the same groups" : "Apriboti naudotojo vardo automatinį užbaigimą kitiems tų pačių grupių naudotojams",
     "Show disclaimer text on the public link upload page. (Only shown when the file list is hidden.)" : "Rodyti atsakomybės ribojimo tekstą įkėlimo per viešąją nuorodą puslapyje. (Rodomas tik tada, kai failų sąrašas yra paslėptas.)",
+=======
+    "Allow users to share via link" : "Leisti naudotojams bendrinti per nuorodą",
+    "Set default expiration date for link shares" : "Nustatyti numatytąją galiojimo pabaigos datą viešiniams per nuorodą",
+    "Allow username autocompletion in share dialog. If this is disabled the full username or email address needs to be entered." : "Leisti bendrinimo dialoge automatinį naudotojo vardų užbaigimą. Jeigu tai išjungta, reikės įvesti pilną naudotojo vardą ar el. pašto adresą.",
+    "Restrict username autocompletion to users within the same groups" : "Apriboti naudotojo vardo automatinį užbaigimą kitiems tų pačių grupių naudotojams",
+    "Show disclaimer text on the public link upload page. (Only shown when the file list is hidden.)" : "Rodyti atsakomybės ribojimo tekstą įkėlimo per viešąją nuorodą puslapyje. (Rodomas tik tada, kai failų sąrašas yra paslėptas.)",
+    "Don't synchronize to servers" : "Nesinchronizuoti į serverius",
+    "Trusted" : "Patikimas",
+>>>>>>> stable20
     "Allow username autocompletion in share dialog (if this is disabled the full username or email address needs to be entered)" : "Leisti bendrinimo dialoge automatinį naudotojo vardų užbaigimą (jeigu tai išjungta, reikės įvesti pilną naudotojo vardą ar el. pašto adresą)"
 },
 "nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);");

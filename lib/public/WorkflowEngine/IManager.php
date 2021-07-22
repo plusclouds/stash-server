@@ -46,7 +46,11 @@ interface IManager {
 	public const MAX_OPERATION_VALUE_BYTES = 4096;
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated 17.0.0 Will be removed in NC19. Use the dedicated events in OCP\WorkflowEngine\Events
+=======
+	 * @depreacted Will be removed in NC19. Use the dedicated events in OCP\WorkflowEngine\Events
+>>>>>>> stable20
 	 */
 	public const EVENT_NAME_REG_OPERATION = 'OCP\WorkflowEngine::registerOperations';
 

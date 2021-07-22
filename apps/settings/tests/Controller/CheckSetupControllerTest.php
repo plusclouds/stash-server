@@ -613,15 +613,56 @@ class CheckSetupControllerTest extends TestCase {
 				'OCA\Settings\SetupChecks\PhpDefaultCharset' => ['pass' => true, 'description' => 'PHP configuration option default_charset should be UTF-8', 'severity' => 'warning'],
 				'OCA\Settings\SetupChecks\PhpOutputBuffering' => ['pass' => true, 'description' => 'PHP configuration option output_buffering must be disabled', 'severity' => 'error'],
 				'OCA\Settings\SetupChecks\LegacySSEKeyFormat' => ['pass' => true, 'description' => 'The old server-side-encryption format is enabled. We recommend disabling this.', 'severity' => 'warning', 'linkToDocumentation' => ''],
+<<<<<<< HEAD
 				'OCA\Settings\SetupChecks\CheckUserCertificates' => ['pass' => false, 'description' => 'There are some user imported SSL certificates present, that are not used anymore with Nextcloud 21. They can be imported on the command line via "occ security:certificates:import" command. Their paths inside the data directory are shown below.', 'severity' => 'warning', 'elements' => ['a', 'b']],
 				'imageMagickLacksSVGSupport' => false,
 				'isDefaultPhoneRegionSet' => false,
+=======
+>>>>>>> stable20
 				'OCA\Settings\SetupChecks\SupportedDatabase' => ['pass' => true, 'description' => '', 'severity' => 'info'],
 			]
 		);
 		$this->assertEquals($expected, $this->checkSetupController->check());
 	}
 
+<<<<<<< HEAD
+=======
+	public function testIsPHPMailerUsed() {
+		$checkSetupController = $this->getMockBuilder(CheckSetupController::class)
+			->setConstructorArgs([
+				'settings',
+				$this->request,
+				$this->config,
+				$this->clientService,
+				$this->urlGenerator,
+				$this->l10n,
+				$this->checker,
+				$this->logger,
+				$this->dispatcher,
+				$this->db,
+				$this->lockingProvider,
+				$this->dateTimeFormatter,
+				$this->memoryInfo,
+				$this->secureRandom,
+				$this->iniGetWrapper,
+				$this->connection,
+			])
+			->setMethods(null)->getMock();
+
+		$this->config->expects($this->at(0))
+			->method('getSystemValue')
+			->with('mail_smtpmode', 'smtp')
+			->willReturn('php');
+		$this->config->expects($this->at(1))
+			->method('getSystemValue')
+			->with('mail_smtpmode', 'smtp')
+			->willReturn('not-php');
+
+		$this->assertTrue($this->invokePrivate($checkSetupController, 'isPHPMailerUsed'));
+		$this->assertFalse($this->invokePrivate($checkSetupController, 'isPHPMailerUsed'));
+	}
+
+>>>>>>> stable20
 	public function testGetCurlVersion() {
 		$checkSetupController = $this->getMockBuilder(CheckSetupController::class)
 			->setConstructorArgs([

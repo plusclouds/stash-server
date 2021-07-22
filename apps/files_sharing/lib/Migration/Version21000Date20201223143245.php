@@ -28,7 +28,11 @@ declare(strict_types=1);
 namespace OCA\Files_Sharing\Migration;
 
 use Closure;
+<<<<<<< HEAD
 use OCP\DB\Types;
+=======
+use Doctrine\DBAL\Types\Types;
+>>>>>>> stable20
 use OCP\DB\ISchemaWrapper;
 use OCP\Migration\IOutput;
 use OCP\Migration\SimpleMigrationStep;

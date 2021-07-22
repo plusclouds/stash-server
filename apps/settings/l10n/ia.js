@@ -7,7 +7,11 @@ OC.L10N.register(
     "Not saved" : "Non salveguardate",
     "Email sent" : "Message de e-posta inviate",
     "Private" : "Private",
+<<<<<<< HEAD
     "Public" : "Public",
+=======
+    "Local" : "Local",
+>>>>>>> stable20
     "Unable to change password" : "Impossibile cambiar contrasigno",
     "Very weak password" : "Contrasigno multo debile",
     "Weak password" : "Contrasigno debile",
@@ -115,7 +119,10 @@ OC.L10N.register(
     "Expire after " : "Expirar post",
     "days" : "dies",
     "Enforce expiration date" : "Exiger data de expiration",
+<<<<<<< HEAD
     "Allow users to share via link" : "Permitter usatores compartir via ligamine",
+=======
+>>>>>>> stable20
     "Allow public uploads" : "Permitter incargas public",
     "Enforce password protection" : "Exiger protection per contrasigno",
     "Profile picture" : "Pictura de profilo",
@@ -141,17 +148,29 @@ OC.L10N.register(
     "Change password" : "Cambiar contrasigno",
     "An error occurred. Please upload an ASCII-encoded PEM certificate." : "Un error occurreva. Per favor, incarga un certificato PEM codificate in ASCII",
     "Valid until {date}" : "Valide usque {date}",
+<<<<<<< HEAD
     "Local" : "Local",
+=======
+>>>>>>> stable20
     "Only visible to local users" : "Solmente visibile a usatores local",
     "Only visible to you" : "Solmente visibile a tu",
     "Contacts" : "Contactos",
     "Visible to local users and to trusted servers" : "Visibile a usatores local e a servitores fiduciari",
+<<<<<<< HEAD
+=======
+    "Public" : "Public",
+>>>>>>> stable20
     "by" : "per",
     "SSL Root Certificates" : "Certificatos Root SSL",
     "Common Name" : "Nomine Commun",
     "Valid until" : "Valide usque",
     "Issued By" : "Emittite per",
     "Valid until %s" : "Valide usque %s",
+<<<<<<< HEAD
     "Import root certificate" : "Importar certificato root"
+=======
+    "Import root certificate" : "Importar certificato root",
+    "Allow users to share via link" : "Permitter usatores compartir via ligamine"
+>>>>>>> stable20
 },
 "nplurals=2; plural=(n != 1);");

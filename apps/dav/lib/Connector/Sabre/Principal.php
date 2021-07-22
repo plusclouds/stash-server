@@ -148,7 +148,11 @@ class Principal implements BackendInterface {
 	 * @return array
 	 */
 	public function getPrincipalByPath($path) {
+<<<<<<< HEAD
 		[$prefix, $name] = \Sabre\Uri\split($path);
+=======
+		list($prefix, $name) = \Sabre\Uri\split($path);
+>>>>>>> stable20
 		$decodedName = urldecode($name);
 
 		if ($name === 'calendar-proxy-write' || $name === 'calendar-proxy-read') {

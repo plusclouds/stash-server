@@ -5,7 +5,17 @@ declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2017 Bjoern Schiessle <bjoern@schiessle.org>
  *
+<<<<<<< HEAD
  * @author Joas Schilling <coding@schilljs.com>
+=======
+ * @author Bjoern Schiessle <bjoern@schiessle.org>
+ * @author Joas Schilling <coding@schilljs.com>
+ * @author Mario Danic <mario@lovelyhq.com>
+ * @author Morris Jobke <hey@morrisjobke.de>
+ * @author Robin Appelman <robin@icewind.nl>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ * @author Thomas Citharel <nextcloud@tcit.fr>
+>>>>>>> stable20
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -26,7 +36,10 @@ declare(strict_types=1);
 
 namespace OC\Core\Command\Db;
 
+<<<<<<< HEAD
 use OC\DB\Connection;
+=======
+>>>>>>> stable20
 use OC\DB\SchemaWrapper;
 use OCP\IDBConnection;
 use Symfony\Component\Console\Command\Command;
@@ -45,13 +58,21 @@ use Symfony\Component\EventDispatcher\GenericEvent;
  */
 class AddMissingPrimaryKeys extends Command {
 
+<<<<<<< HEAD
 	/** @var Connection */
+=======
+	/** @var IDBConnection */
+>>>>>>> stable20
 	private $connection;
 
 	/** @var EventDispatcherInterface */
 	private $dispatcher;
 
+<<<<<<< HEAD
 	public function __construct(Connection $connection, EventDispatcherInterface $dispatcher) {
+=======
+	public function __construct(IDBConnection $connection, EventDispatcherInterface $dispatcher) {
+>>>>>>> stable20
 		parent::__construct();
 
 		$this->connection = $connection;

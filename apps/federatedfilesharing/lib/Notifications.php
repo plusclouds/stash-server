@@ -95,7 +95,11 @@ class Notifications {
 	 * @throws \OC\ServerNotAvailableException
 	 */
 	public function sendRemoteShare($token, $shareWith, $name, $remoteId, $owner, $ownerFederatedId, $sharedBy, $sharedByFederatedId, $shareType) {
+<<<<<<< HEAD
 		[$user, $remote] = $this->addressHandler->splitUserRemote($shareWith);
+=======
+		list($user, $remote) = $this->addressHandler->splitUserRemote($shareWith);
+>>>>>>> stable20
 
 		if ($user && $remote) {
 			$local = $this->addressHandler->generateRemoteURL();

@@ -19,6 +19,12 @@
     "Good afternoon, {name}" : "Dobar dan, {name}",
     "Good evening" : "Dobar dan",
     "Good evening, {name}" : "Dobar dan, {name}",
+<<<<<<< HEAD
+=======
+    "Hello" : "Pozdrav",
+    "Hello, {name}" : "Pozdrav, {name}",
+    "Pick from Files" : "Odaberi iz datoteka",
+>>>>>>> stable20
     "Default images" : "Zadane slike",
     "Plain background" : "Obična pozadina",
     "Insert from {productName}" : "Umetni iz {productName}",

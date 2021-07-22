@@ -202,7 +202,11 @@ class EmailProvider extends AbstractProvider {
 
 		$organizerEMail = substr($organizer->getValue(), 7);
 
+<<<<<<< HEAD
 		if ($organizerEMail === false || !$this->mailer->validateMailAddress($organizerEMail)) {
+=======
+		if (!$this->mailer->validateMailAddress($organizerEMail)) {
+>>>>>>> stable20
 			return null;
 		}
 

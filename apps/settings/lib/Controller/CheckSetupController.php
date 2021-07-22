@@ -276,10 +276,14 @@ class CheckSetupController extends Controller {
 					return $this->l10n->t('cURL is using an outdated %1$s version (%2$s). Please update your operating system or features such as %3$s will not work reliably.', ['NSS', $versionString, $features]);
 				}
 			} catch (\Exception $e) {
+<<<<<<< HEAD
 				$this->logger->warning('error checking curl', [
 					'app' => 'settings',
 					'exception' => $e,
 				]);
+=======
+				$this->logger->logException($e, ['app' => 'settings', 'level' => \OCP\ILogger::WARN]);
+>>>>>>> stable20
 				return $this->l10n->t('Could not determine if TLS version of cURL is outdated or not because an error happened during the HTTPS request against https://nextcloud.com. Please check the nextcloud log file for more details.');
 			}
 		}
@@ -721,9 +725,13 @@ Raw output
 		$phpDefaultCharset = new PhpDefaultCharset();
 		$phpOutputBuffering = new PhpOutputBuffering();
 		$legacySSEKeyFormat = new LegacySSEKeyFormat($this->l10n, $this->config, $this->urlGenerator);
+<<<<<<< HEAD
 		$checkUserCertificates = new CheckUserCertificates($this->l10n, $this->config, $this->urlGenerator);
 		$supportedDatabases = new SupportedDatabase($this->l10n, $this->connection);
 
+=======
+		$supportedDatabases = new SupportedDatabase($this->l10n, $this->connection);
+>>>>>>> stable20
 		return new DataResponse(
 			[
 				'isGetenvServerWorking' => !empty(getenv('PATH')),
@@ -767,8 +775,11 @@ Raw output
 				PhpDefaultCharset::class => ['pass' => $phpDefaultCharset->run(), 'description' => $phpDefaultCharset->description(), 'severity' => $phpDefaultCharset->severity()],
 				PhpOutputBuffering::class => ['pass' => $phpOutputBuffering->run(), 'description' => $phpOutputBuffering->description(), 'severity' => $phpOutputBuffering->severity()],
 				LegacySSEKeyFormat::class => ['pass' => $legacySSEKeyFormat->run(), 'description' => $legacySSEKeyFormat->description(), 'severity' => $legacySSEKeyFormat->severity(), 'linkToDocumentation' => $legacySSEKeyFormat->linkToDocumentation()],
+<<<<<<< HEAD
 				CheckUserCertificates::class => ['pass' => $checkUserCertificates->run(), 'description' => $checkUserCertificates->description(), 'severity' => $checkUserCertificates->severity(), 'elements' => $checkUserCertificates->elements()],
 				'isDefaultPhoneRegionSet' => $this->config->getSystemValueString('default_phone_region', '') !== '',
+=======
+>>>>>>> stable20
 				SupportedDatabase::class => ['pass' => $supportedDatabases->run(), 'description' => $supportedDatabases->description(), 'severity' => $supportedDatabases->severity()],
 			]
 		);

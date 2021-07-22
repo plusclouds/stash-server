@@ -814,6 +814,7 @@ class ManagerTest extends \Test\TestCase {
 		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
 
 		$this->assertNull($share->getExpirationDate());
+<<<<<<< HEAD
 	}
 
 	public function testValidateExpirationDateInternalEnforceButNotSetNewShare() {
@@ -1003,6 +1004,197 @@ class ManagerTest extends \Test\TestCase {
 		$nextWeek->add(new \DateInterval('P7D'));
 		$nextWeek->setTime(0,0,0);
 
+=======
+	}
+
+	public function testValidateExpirationDateInternalEnforceButNotSetNewShare() {
+		$share = $this->manager->newShare();
+
+		$this->config->method('getAppValue')
+			->willReturnMap([
+				['core', 'shareapi_enforce_internal_expire_date', 'no', 'yes'],
+				['core', 'shareapi_internal_expire_after_n_days', '7', '3'],
+				['core', 'shareapi_default_internal_expire_date', 'no', 'yes'],
+				['core', 'internal_defaultExpDays', '3', '3'],
+			]);
+
+		$expected = new \DateTime();
+		$expected->setTime(0,0,0);
+		$expected->add(new \DateInterval('P3D'));
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+
+		$this->assertNotNull($share->getExpirationDate());
+		$this->assertEquals($expected, $share->getExpirationDate());
+	}
+
+	public function testValidateExpirationDateInternalEnforceRelaxedDefaultButNotSetNewShare() {
+		$share = $this->manager->newShare();
+
+		$this->config->method('getAppValue')
+			->willReturnMap([
+				['core', 'shareapi_enforce_internal_expire_date', 'no', 'yes'],
+				['core', 'shareapi_internal_expire_after_n_days', '7', '3'],
+				['core', 'shareapi_default_internal_expire_date', 'no', 'yes'],
+				['core', 'internal_defaultExpDays', '3', '1'],
+			]);
+
+		$expected = new \DateTime();
+		$expected->setTime(0,0,0);
+		$expected->add(new \DateInterval('P1D'));
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+
+		$this->assertNotNull($share->getExpirationDate());
+		$this->assertEquals($expected, $share->getExpirationDate());
+	}
+
+	public function testValidateExpirationDateInternalEnforceTooFarIntoFuture() {
+		$this->expectException(\OCP\Share\Exceptions\GenericShareException::class);
+		$this->expectExceptionMessage('Can’t set expiration date more than 3 days in the future');
+
+		$future = new \DateTime();
+		$future->add(new \DateInterval('P7D'));
+
+		$share = $this->manager->newShare();
+		$share->setExpirationDate($future);
+
+		$this->config->method('getAppValue')
+			->willReturnMap([
+				['core', 'shareapi_enforce_internal_expire_date', 'no', 'yes'],
+				['core', 'shareapi_internal_expire_after_n_days', '7', '3'],
+				['core', 'shareapi_default_internal_expire_date', 'no', 'yes'],
+			]);
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+	}
+
+	public function testValidateExpirationDateInternalEnforceValid() {
+		$future = new \DateTime();
+		$future->add(new \DateInterval('P2D'));
+		$future->setTime(1,2,3);
+
+		$expected = clone $future;
+		$expected->setTime(0,0,0);
+
+		$share = $this->manager->newShare();
+		$share->setExpirationDate($future);
+
+		$this->config->method('getAppValue')
+			->willReturnMap([
+				['core', 'shareapi_enforce_internal_expire_date', 'no', 'yes'],
+				['core', 'shareapi_internal_expire_after_n_days', '7', '3'],
+				['core', 'shareapi_default_internal_expire_date', 'no', 'yes'],
+			]);
+
+		$hookListener = $this->getMockBuilder('Dummy')->setMethods(['listener'])->getMock();
+		\OCP\Util::connectHook('\OC\Share', 'verifyExpirationDate', $hookListener, 'listener');
+		$hookListener->expects($this->once())->method('listener')->with($this->callback(function ($data) use ($future) {
+			return $data['expirationDate'] == $future;
+		}));
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+
+		$this->assertEquals($expected, $share->getExpirationDate());
+	}
+
+	public function testValidateExpirationDateInternalNoDefault() {
+		$date = new \DateTime();
+		$date->add(new \DateInterval('P5D'));
+		$date->setTime(1,2,3);
+
+		$expected = clone $date;
+		$expected->setTime(0,0,0);
+
+		$share = $this->manager->newShare();
+		$share->setExpirationDate($date);
+
+		$hookListener = $this->getMockBuilder('Dummy')->setMethods(['listener'])->getMock();
+		\OCP\Util::connectHook('\OC\Share', 'verifyExpirationDate', $hookListener, 'listener');
+		$hookListener->expects($this->once())->method('listener')->with($this->callback(function ($data) use ($expected) {
+			return $data['expirationDate'] == $expected && $data['passwordSet'] === false;
+		}));
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+
+		$this->assertEquals($expected, $share->getExpirationDate());
+	}
+
+	public function testValidateExpirationDateInternalNoDateNoDefault() {
+		$hookListener = $this->getMockBuilder('Dummy')->setMethods(['listener'])->getMock();
+		\OCP\Util::connectHook('\OC\Share', 'verifyExpirationDate', $hookListener, 'listener');
+		$hookListener->expects($this->once())->method('listener')->with($this->callback(function ($data) {
+			return $data['expirationDate'] === null && $data['passwordSet'] === true;
+		}));
+
+		$share = $this->manager->newShare();
+		$share->setPassword('password');
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+
+		$this->assertNull($share->getExpirationDate());
+	}
+
+	public function testValidateExpirationDateInternalNoDateDefault() {
+		$share = $this->manager->newShare();
+
+		$expected = new \DateTime();
+		$expected->add(new \DateInterval('P3D'));
+		$expected->setTime(0,0,0);
+
+		$this->config->method('getAppValue')
+			->willReturnMap([
+				['core', 'shareapi_default_internal_expire_date', 'no', 'yes'],
+				['core', 'shareapi_internal_expire_after_n_days', '7', '3'],
+				['core', 'internal_defaultExpDays', '3', '3'],
+			]);
+
+		$hookListener = $this->getMockBuilder('Dummy')->setMethods(['listener'])->getMock();
+		\OCP\Util::connectHook('\OC\Share', 'verifyExpirationDate', $hookListener, 'listener');
+		$hookListener->expects($this->once())->method('listener')->with($this->callback(function ($data) use ($expected) {
+			return $data['expirationDate'] == $expected;
+		}));
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+
+		$this->assertEquals($expected, $share->getExpirationDate());
+	}
+
+	public function testValidateExpirationDateInternalDefault() {
+		$future = new \DateTime();
+		$future->add(new \DateInterval('P5D'));
+		$future->setTime(1,2,3);
+
+		$expected = clone $future;
+		$expected->setTime(0,0,0);
+
+		$share = $this->manager->newShare();
+		$share->setExpirationDate($future);
+
+		$this->config->method('getAppValue')
+			->willReturnMap([
+				['core', 'shareapi_default_internal_expire_date', 'no', 'yes'],
+				['core', 'shareapi_internal_expire_after_n_days', '7', '3'],
+				['core', 'internal_defaultExpDays', '3', '1'],
+			]);
+
+		$hookListener = $this->getMockBuilder('Dummy')->setMethods(['listener'])->getMock();
+		\OCP\Util::connectHook('\OC\Share', 'verifyExpirationDate', $hookListener, 'listener');
+		$hookListener->expects($this->once())->method('listener')->with($this->callback(function ($data) use ($expected) {
+			return $data['expirationDate'] == $expected;
+		}));
+
+		self::invokePrivate($this->manager, 'validateExpirationDateInternal', [$share]);
+
+		$this->assertEquals($expected, $share->getExpirationDate());
+	}
+
+	public function testValidateExpirationDateInternalHookModification() {
+		$nextWeek = new \DateTime();
+		$nextWeek->add(new \DateInterval('P7D'));
+		$nextWeek->setTime(0,0,0);
+
+>>>>>>> stable20
 		$save = clone $nextWeek;
 
 		$hookListener = $this->getMockBuilder('Dummy')->setMethods(['listener'])->getMock();
@@ -1419,7 +1611,11 @@ class ManagerTest extends \Test\TestCase {
 		$this->expectException(AlreadySharedException::class);
 		$this->expectExceptionMessage('Sharing name.txt failed, because this item is already shared with user user');
 
+<<<<<<< HEAD
 		$share = $this->manager->newShare();
+=======
+		$share  = $this->manager->newShare();
+>>>>>>> stable20
 		$share->setSharedWithDisplayName('user');
 		$share2 = $this->manager->newShare();
 

@@ -39,8 +39,13 @@
     "@nextcloud/password-confirmation": "^1.0.1",
     "@nextcloud/paths": "^1.1.2",
     "@nextcloud/router": "^1.1.0",
+<<<<<<< HEAD
     "@nextcloud/vue": "^3.7.2",
     "@nextcloud/vue-dashboard": "^1.1.0",
+=======
+    "@nextcloud/vue": "^2.6.9",
+    "@nextcloud/vue-dashboard": "^1.0.0",
+>>>>>>> stable20
     "autosize": "^4.0.2",
     "backbone": "^1.4.0",
     "blueimp-md5": "^2.18.0",
@@ -51,7 +56,11 @@
     "css-vars-ponyfill": "^2.4.3",
     "davclient.js": "git+https://github.com/owncloud/davclient.js.git#0.2.1",
     "debounce": "^1.2.0",
+<<<<<<< HEAD
     "dompurify": "^2.2.6",
+=======
+    "dompurify": "^2.2.2",
+>>>>>>> stable20
     "escape-html": "^1.0.3",
     "handlebars": "^4.7.7",
     "jcrop": "git+https://github.com/ChristophWurst/Jcrop.git#v0.9.12-npm3",

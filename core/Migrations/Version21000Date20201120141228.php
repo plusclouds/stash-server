@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 /**
  *
  *
@@ -24,6 +25,8 @@ declare(strict_types=1);
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
+=======
+>>>>>>> stable20
 namespace OC\Core\Migrations;
 
 use Closure;

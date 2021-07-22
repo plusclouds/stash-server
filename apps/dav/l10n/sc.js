@@ -44,8 +44,13 @@ OC.L10N.register(
     "A <strong>calendar</strong> was modified" : "Unu <strong>calendàriu</strong> est istadu modificadu",
     "A calendar <strong>event</strong> was modified" : "Unu <strong>eventu</strong> de su calendàriu est istadu modificadu",
     "A calendar <strong>todo</strong> was modified" : "Una <strong>cosa de fàghere</strong> de su calendàriu est istada modificada",
+<<<<<<< HEAD
     "Death of %s" : "Morte de %s",
     "Contact birthdays" : "Data de nàschida de is cuntatos",
+=======
+    "Contact birthdays" : "Data de nàschida de is cuntatos",
+    "Death of %s" : "Morte de %s",
+>>>>>>> stable20
     "Calendar:" : "Calendàriu:",
     "Date:" : "Data:",
     "Where:" : "Ue:",

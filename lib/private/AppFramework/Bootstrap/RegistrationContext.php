@@ -231,7 +231,16 @@ class RegistrationContext {
 	}
 
 	public function registerService(string $appId, string $name, callable $factory, bool $shared = true): void {
+<<<<<<< HEAD
 		$this->services[] = new ServiceFactoryRegistration($appId, $name, $factory, $shared);
+=======
+		$this->services[] = [
+			"appId" => $appId,
+			"name" => $name,
+			"factory" => $factory,
+			"shared" => $shared,
+		];
+>>>>>>> stable20
 	}
 
 	public function registerServiceAlias(string $appId, string $alias, string $target): void {

@@ -25,8 +25,13 @@ declare(strict_types=1);
 
 namespace Test\Repair;
 
+<<<<<<< HEAD
 use OC\Repair\RepairDavShares;
 use OCP\DB\IResult;
+=======
+use Doctrine\DBAL\Driver\Statement;
+use OC\Repair\RepairDavShares;
+>>>>>>> stable20
 use OCP\DB\QueryBuilder\IExpressionBuilder;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\IConfig;
@@ -130,7 +135,11 @@ class RepairDavSharesTest extends TestCase {
 			],
 		];
 
+<<<<<<< HEAD
 		$shareResults = $this->createMock(IResult::class);
+=======
+		$shareResults = $this->createMock(Statement::class);
+>>>>>>> stable20
 		$shareResults->expects($this->any())
 			->method('fetch')
 			->willReturnCallback(function () use (&$shareResultData) {
@@ -175,7 +184,11 @@ class RepairDavSharesTest extends TestCase {
 				['updatedPrincipalUri', 'principals/groups/' . urlencode('family friends')],
 				['shareId', 7],
 				['updatedPrincipalUri', 'principals/groups/' . urlencode('Wants Repair')],
+<<<<<<< HEAD
 				['shareId', 1],
+=======
+				['shareId', 1]
+>>>>>>> stable20
 			)
 			->willReturnSelf();
 		$updateMock->expects($this->exactly(2))

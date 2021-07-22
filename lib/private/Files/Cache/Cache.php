@@ -198,10 +198,10 @@ class Cache implements ICache {
 		}
 		$data['permissions'] = (int)$data['permissions'];
 		if (isset($data['creation_time'])) {
-			$data['creation_time'] = (int) $data['creation_time'];
+			$data['creation_time'] = (int)$data['creation_time'];
 		}
 		if (isset($data['upload_time'])) {
-			$data['upload_time'] = (int) $data['upload_time'];
+			$data['upload_time'] = (int)$data['upload_time'];
 		}
 		return new CacheEntry($data);
 	}
@@ -486,7 +486,11 @@ class Cache implements ICache {
 			->wherePath($file);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$id = $result->fetchOne();
+=======
+		$id = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 
 		return $id === false ? -1 : (int)$id;
@@ -642,6 +646,10 @@ class Cache implements ICache {
 			$targetPath = $this->normalize($targetPath);
 
 			$sourceData = $sourceCache->get($sourcePath);
+			if ($sourceData === false) {
+				throw new \Exception('Invalid source storage path: ' . $sourcePath);
+			}
+
 			$sourceId = $sourceData['fileid'];
 			$newParentId = $this->getParentId($targetPath);
 
@@ -746,7 +754,11 @@ class Cache implements ICache {
 			->wherePath($file);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$size = $result->fetchOne();
+=======
+		$size = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 
 		if ($size !== false) {
@@ -833,6 +845,10 @@ class Cache implements ICache {
 		}, $files);
 	}
 
+	/**
+	 * @param ISearchQuery $searchQuery
+	 * @return CacheEntry[]
+	 */
 	public function searchQuery(ISearchQuery $searchQuery) {
 		$builder = $this->getQueryBuilder();
 
@@ -841,6 +857,10 @@ class Cache implements ICache {
 		$query->whereStorageId();
 
 		if ($this->querySearchHelper->shouldJoinTags($searchQuery->getSearchOperation())) {
+			$user = $searchQuery->getUser();
+			if ($user === null) {
+				throw new \InvalidArgumentException("Searching by tag requires the user to be set in the query");
+			}
 			$query
 				->innerJoin('file', 'vcategory_to_object', 'tagmap', $builder->expr()->eq('file.fileid', 'tagmap.objid'))
 				->innerJoin('tagmap', 'vcategory', 'tag', $builder->expr()->andX(
@@ -848,7 +868,7 @@ class Cache implements ICache {
 					$builder->expr()->eq('tagmap.categoryid', 'tag.id')
 				))
 				->andWhere($builder->expr()->eq('tag.type', $builder->createNamedParameter('files')))
-				->andWhere($builder->expr()->eq('tag.uid', $builder->createNamedParameter($searchQuery->getUser()->getUID())));
+				->andWhere($builder->expr()->eq('tag.uid', $builder->createNamedParameter($user->getUID())));
 		}
 
 		$searchExpr = $this->querySearchHelper->searchOperatorToDBExpr($builder, $searchQuery->getSearchOperation());
@@ -914,7 +934,11 @@ class Cache implements ICache {
 				->andWhere($query->expr()->lt('size', $query->createNamedParameter(0, IQueryBuilder::PARAM_INT)));
 
 			$result = $query->execute();
+<<<<<<< HEAD
 			$size = (int)$result->fetchOne();
+=======
+			$size = (int)$result->fetchColumn();
+>>>>>>> stable20
 			$result->closeCursor();
 
 			return $size;
@@ -1004,7 +1028,11 @@ class Cache implements ICache {
 			->setMaxResults(1);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$path = $result->fetchOne();
+=======
+		$path = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 
 		return $path;
@@ -1024,14 +1052,22 @@ class Cache implements ICache {
 			->whereFileId($id);
 
 		$result = $query->execute();
+<<<<<<< HEAD
 		$path = $result->fetchOne();
+=======
+		$path = $result->fetchColumn();
+>>>>>>> stable20
 		$result->closeCursor();
 
 		if ($path === false) {
 			return null;
 		}
 
+<<<<<<< HEAD
 		return (string) $path;
+=======
+		return (string)$path;
+>>>>>>> stable20
 	}
 
 	/**

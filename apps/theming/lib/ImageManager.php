@@ -46,7 +46,7 @@ use OCP\IURLGenerator;
 
 class ImageManager {
 
-	/** @var IConfig */
+/** @var IConfig */
 	private $config;
 	/** @var IAppData */
 	private $appData;
@@ -62,12 +62,21 @@ class ImageManager {
 	private $tempManager;
 
 	public function __construct(IConfig $config,
+<<<<<<< HEAD
 								IAppData $appData,
 								IURLGenerator $urlGenerator,
 								ICacheFactory $cacheFactory,
 								ILogger $logger,
 								ITempManager $tempManager
 	) {
+=======
+							IAppData $appData,
+							IURLGenerator $urlGenerator,
+							ICacheFactory $cacheFactory,
+							ILogger $logger,
+							ITempManager $tempManager
+) {
+>>>>>>> stable20
 		$this->config = $config;
 		$this->appData = $appData;
 		$this->urlGenerator = $urlGenerator;
@@ -85,13 +94,13 @@ class ImageManager {
 		}
 
 		switch ($key) {
-			case 'logo':
-			case 'logoheader':
-			case 'favicon':
-				return $this->urlGenerator->imagePath('core', 'logo/logo.png') . '?v=' . $cacheBusterCounter;
-			case 'background':
-				return $this->urlGenerator->imagePath('core', 'background.png') . '?v=' . $cacheBusterCounter;
-		}
+		case 'logo':
+		case 'logoheader':
+		case 'favicon':
+			return $this->urlGenerator->imagePath('core', 'logo/logo.png') . '?v=' . $cacheBusterCounter;
+		case 'background':
+			return $this->urlGenerator->imagePath('core', 'background.png') . '?v=' . $cacheBusterCounter;
+	}
 	}
 
 	public function getImageUrlAbsolute(string $key, bool $useSvg = true): string {
@@ -106,6 +115,10 @@ class ImageManager {
 	 * @throws NotPermittedException
 	 */
 	public function getImage(string $key, bool $useSvg = true): ISimpleFile {
+<<<<<<< HEAD
+=======
+		$pngFile = null;
+>>>>>>> stable20
 		$logo = $this->config->getAppValue('theming', $key . 'Mime', '');
 		$folder = $this->appData->getFolder('images');
 		if ($logo === '' || !$folder->fileExists($key)) {
@@ -224,7 +237,11 @@ class ImageManager {
 			throw new \Exception('Unsupported image type');
 		}
 
+<<<<<<< HEAD
 		if ($key === 'background' && strpos($detectedMimeType, 'image/svg') === false && strpos($detectedMimeType, 'image/gif') === false) {
+=======
+		if ($key === 'background' && strpos($detectedMimeType, 'image/svg') === false) {
+>>>>>>> stable20
 			// Optimize the image since some people may upload images that will be
 			// either to big or are not progressive rendering.
 			$newImage = @imagecreatefromstring(file_get_contents($tmpFile));
@@ -258,18 +275,25 @@ class ImageManager {
 	 * @return array
 	 */
 	private function getSupportedUploadImageFormats(string $key): array {
+<<<<<<< HEAD
 		$supportedFormats = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+=======
+		$supportedFormats = ['image/jpeg', 'image/png', 'image/gif'];
+>>>>>>> stable20
 
 		if ($key !== 'favicon' || $this->shouldReplaceIcons() === true) {
 			$supportedFormats[] = 'image/svg+xml';
 			$supportedFormats[] = 'image/svg';
 		}
 
+<<<<<<< HEAD
 		if ($key === 'favicon') {
 			$supportedFormats[] = 'image/x-icon';
 			$supportedFormats[] = 'image/vnd.microsoft.icon';
 		}
 
+=======
+>>>>>>> stable20
 		return $supportedFormats;
 	}
 

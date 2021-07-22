@@ -9,7 +9,11 @@ then
 else
   echo "Composer not found: fetching"
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+<<<<<<< HEAD
   php composer-setup.php --2
+=======
+  php composer-setup.php --1
+>>>>>>> stable20
   php -r "unlink('composer-setup.php');"
 fi
 

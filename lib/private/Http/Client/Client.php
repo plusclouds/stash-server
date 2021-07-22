@@ -105,6 +105,7 @@ class Client implements IClient {
 	}
 
 	private function getCertBundle(): string {
+<<<<<<< HEAD
 		// If the instance is not yet setup we need to use the static path as
 		// $this->certificateManager->getAbsoluteBundlePath() tries to instantiate
 		// a view
@@ -113,6 +114,20 @@ class Client implements IClient {
 		}
 
 		return $this->certificateManager->getAbsoluteBundlePath();
+=======
+		if ($this->certificateManager->listCertificates() !== []) {
+			return $this->certificateManager->getAbsoluteBundlePath();
+		}
+
+		// If the instance is not yet setup we need to use the static path as
+		// $this->certificateManager->getAbsoluteBundlePath() tries to instantiate
+		// a view
+		if ($this->config->getSystemValue('installed', false)) {
+			return $this->certificateManager->getAbsoluteBundlePath(null);
+		}
+
+		return \OC::$SERVERROOT . '/resources/config/ca-bundle.crt';
+>>>>>>> stable20
 	}
 
 	/**

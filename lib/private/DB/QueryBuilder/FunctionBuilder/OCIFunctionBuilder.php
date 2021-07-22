@@ -46,7 +46,11 @@ class OCIFunctionBuilder extends FunctionBuilder {
 	 * @param string|ILiteral|IParameter|IQueryFunction $y
 	 * @return IQueryFunction
 	 */
+<<<<<<< HEAD
 	public function greatest($x, $y): IQueryFunction {
+=======
+	public function greatest($x, $y) {
+>>>>>>> stable20
 		if (is_string($y) || $y instanceof IQueryFunction) {
 			return parent::greatest($y, $x);
 		}
@@ -66,7 +70,11 @@ class OCIFunctionBuilder extends FunctionBuilder {
 	 * @param string|ILiteral|IParameter|IQueryFunction $y
 	 * @return IQueryFunction
 	 */
+<<<<<<< HEAD
 	public function least($x, $y): IQueryFunction {
+=======
+	public function least($x, $y) {
+>>>>>>> stable20
 		if (is_string($y) || $y instanceof IQueryFunction) {
 			return parent::least($y, $x);
 		}

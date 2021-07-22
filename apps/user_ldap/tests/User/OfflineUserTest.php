@@ -1,7 +1,10 @@
 <?php
 
 declare(strict_types=1);
+<<<<<<< HEAD
 
+=======
+>>>>>>> stable20
 /**
  * @copyright Copyright (c) 2020 Arthur Schiwon <blizzz@arthur-schiwon.de>
  *
@@ -20,17 +23,29 @@ declare(strict_types=1);
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
+<<<<<<< HEAD
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+>>>>>>> stable20
  *
  */
 
 namespace OCA\User_LDAP\Tests\User;
 
+<<<<<<< HEAD
 use OCA\User_LDAP\Mapping\UserMapping;
 use OCA\User_LDAP\User\OfflineUser;
 use OCP\IConfig;
 use OCP\Share\IManager;
 use OCP\Share\IShare;
+=======
+use Doctrine\DBAL\Driver\Statement;
+use OCA\User_LDAP\Mapping\UserMapping;
+use OCA\User_LDAP\User\OfflineUser;
+use OCP\IConfig;
+use OCP\IDBConnection;
+>>>>>>> stable20
 use Test\TestCase;
 
 class OfflineUserTest extends TestCase {
@@ -43,36 +58,64 @@ class OfflineUserTest extends TestCase {
 	protected $uid;
 	/** @var IConfig|\PHPUnit\Framework\MockObject\MockObject */
 	protected $config;
+<<<<<<< HEAD
 	/** @var IManager|\PHPUnit\Framework\MockObject\MockObject */
 	protected $shareManager;
+=======
+	/** @var IDBConnection|\PHPUnit\Framework\MockObject\MockObject */
+	protected $dbc;
+>>>>>>> stable20
 
 	public function setUp(): void {
 		$this->uid = 'deborah';
 		$this->config = $this->createMock(IConfig::class);
+<<<<<<< HEAD
 		$this->mapping = $this->createMock(UserMapping::class);
 		$this->shareManager = $this->createMock(IManager::class);
+=======
+		$this->dbc = $this->createMock(IDBConnection::class);
+		$this->mapping = $this->createMock(UserMapping::class);
+>>>>>>> stable20
 
 		$this->offlineUser = new OfflineUser(
 			$this->uid,
 			$this->config,
+<<<<<<< HEAD
 			$this->mapping,
 			$this->shareManager
+=======
+			$this->dbc,
+			$this->mapping
+>>>>>>> stable20
 		);
 	}
 
 	public function shareOwnerProvider(): array {
+<<<<<<< HEAD
 		return [
 			[[], false],
 			[[IShare::TYPE_USER], true],
 			[[IShare::TYPE_GROUP, IShare::TYPE_LINK], true],
 			[[IShare::TYPE_EMAIL, IShare::TYPE_REMOTE, IShare::TYPE_CIRCLE], true],
 			[[IShare::TYPE_GUEST, IShare::TYPE_REMOTE_GROUP, IShare::TYPE_ROOM], true],
+=======
+		// tests for none, one, many
+		return [
+			[ 0, 0, false],
+			[ 1, 0, true],
+			[ 0, 1, true],
+			[ 1, 1, true],
+			[ 2, 0, true],
+			[ 0, 2, true],
+			[ 2, 2, true],
+>>>>>>> stable20
 		];
 	}
 
 	/**
 	 * @dataProvider shareOwnerProvider
 	 */
+<<<<<<< HEAD
 	public function testHasActiveShares(array $existingShareTypes, bool $expected) {
 		$shareMock = $this->createMock(IShare::class);
 
@@ -84,6 +127,22 @@ class OfflineUserTest extends TestCase {
 				}
 				return [];
 			});
+=======
+	public function testHasActiveShares(int $internalOwnerships, int $externalOwnerships, bool $expected) {
+		$queryMock = $this->createMock(Statement::class);
+		$queryMock->expects($this->atLeastOnce())
+			->method('execute');
+		$queryMock->expects($this->atLeastOnce())
+			->method('rowCount')
+			->willReturnOnConsecutiveCalls(
+				$internalOwnerships > 0 ? 1 : 0,
+				$externalOwnerships > 0 ? 1 : 0
+			);
+
+		$this->dbc->expects($this->atLeastOnce())
+			->method('prepare')
+			->willReturn($queryMock);
+>>>>>>> stable20
 
 		$this->assertSame($expected, $this->offlineUser->getHasActiveShares());
 	}

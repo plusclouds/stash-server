@@ -43,17 +43,29 @@ use Doctrine\DBAL\Driver;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Exception\ConstraintViolationException;
 use Doctrine\DBAL\Exception\NotNullConstraintViolationException;
+<<<<<<< HEAD
 use Doctrine\DBAL\Platforms\MySQLPlatform;
 use Doctrine\DBAL\Result;
+=======
+use Doctrine\DBAL\Platforms\MySqlPlatform;
+>>>>>>> stable20
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\DBAL\Statement;
 use OC\DB\QueryBuilder\QueryBuilder;
 use OC\SystemConfig;
 use OCP\DB\QueryBuilder\IQueryBuilder;
+<<<<<<< HEAD
 use OCP\ILogger;
 use OCP\PreConditionNotMetException;
 
 class Connection extends \Doctrine\DBAL\Connection {
+=======
+use OCP\IDBConnection;
+use OCP\ILogger;
+use OCP\PreConditionNotMetException;
+
+class Connection extends ReconnectWrapper implements IDBConnection {
+>>>>>>> stable20
 	/** @var string */
 	protected $tablePrefix;
 
@@ -99,7 +111,11 @@ class Connection extends \Doctrine\DBAL\Connection {
 	public function getQueryBuilder(): IQueryBuilder {
 		$this->queriesBuilt++;
 		return new QueryBuilder(
+<<<<<<< HEAD
 			new ConnectionAdapter($this),
+=======
+			$this,
+>>>>>>> stable20
 			$this->systemConfig,
 			$this->logger
 		);

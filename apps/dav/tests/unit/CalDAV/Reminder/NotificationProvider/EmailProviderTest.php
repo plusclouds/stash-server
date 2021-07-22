@@ -81,7 +81,11 @@ class EmailProviderTest extends AbstractNotificationProviderTest {
 	}
 
 	public function testSendWithoutAttendees():void {
+<<<<<<< HEAD
 		[$user1, $user2, $user3, , $user5] = $users = $this->getUsers();
+=======
+		list($user1, $user2, $user3, , $user5) = $users = $this->getUsers();
+>>>>>>> stable20
 
 		$enL10N = $this->createMock(IL10N::class);
 		$enL10N->method('t')
@@ -191,7 +195,11 @@ class EmailProviderTest extends AbstractNotificationProviderTest {
 	}
 
 	public function testSendWithAttendees(): void {
+<<<<<<< HEAD
 		[$user1, $user2, $user3, , $user5] = $users = $this->getUsers();
+=======
+		list($user1, $user2, $user3, , $user5) = $users = $this->getUsers();
+>>>>>>> stable20
 
 		$enL10N = $this->createMock(IL10N::class);
 		$enL10N->method('t')

@@ -36,7 +36,10 @@ use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\NotFoundResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\App\IAppManager;
+<<<<<<< HEAD
 use OCP\AppFramework\Services\IInitialState;
+=======
+>>>>>>> stable20
 use OCP\Dashboard\IManager;
 use OCP\Dashboard\IWidget;
 use OCP\Dashboard\RegisterWidgetEvent;
@@ -119,6 +122,7 @@ class DashboardController extends Controller {
 		$themingDefaultBackground = $this->appManager->isEnabledForUser('theming')
 			? $this->config->getAppValue('theming', 'backgroundMime', '')
 			: '';
+<<<<<<< HEAD
 		$this->inititalState->provideInitialState('themingDefaultBackground', $themingDefaultBackground);
 		$this->inititalState->provideInitialState('panels', $widgets);
 		$this->inititalState->provideInitialState('statuses', $statuses);
@@ -127,6 +131,16 @@ class DashboardController extends Controller {
 		$this->inititalState->provideInitialState('shippedBackgrounds', BackgroundService::SHIPPED_BACKGROUNDS);
 		$this->inititalState->provideInitialState('background', $this->config->getUserValue($this->userId, 'dashboard', 'background', 'default'));
 		$this->inititalState->provideInitialState('version', $this->config->getUserValue($this->userId, 'dashboard', 'backgroundVersion', 0));
+=======
+		$this->inititalStateService->provideInitialState('dashboard', 'themingDefaultBackground', $themingDefaultBackground);
+		$this->inititalStateService->provideInitialState('dashboard', 'panels', $widgets);
+		$this->inititalStateService->provideInitialState('dashboard', 'statuses', $statuses);
+		$this->inititalStateService->provideInitialState('dashboard', 'layout', $userLayout);
+		$this->inititalStateService->provideInitialState('dashboard', 'firstRun', $this->config->getUserValue($this->userId, 'dashboard', 'firstRun', '1') === '1');
+		$this->inititalStateService->provideInitialState('dashboard', 'shippedBackgrounds', BackgroundService::SHIPPED_BACKGROUNDS);
+		$this->inititalStateService->provideInitialState('dashboard', 'background', $this->config->getUserValue($this->userId, 'dashboard', 'background', 'default'));
+		$this->inititalStateService->provideInitialState('dashboard', 'version', $this->config->getUserValue($this->userId, 'dashboard', 'backgroundVersion', 0));
+>>>>>>> stable20
 		$this->config->setUserValue($this->userId, 'dashboard', 'firstRun', '0');
 
 		$response = new TemplateResponse('dashboard', 'index');

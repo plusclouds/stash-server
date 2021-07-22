@@ -23,7 +23,11 @@
 	<div class="clear-at-select">
 		<span
 			class="clear-at-select__label">
+<<<<<<< HEAD
 			{{ $t('user_status', 'Clear status message after') }}
+=======
+			{{ $t('user_status', 'Clear status after') }}
+>>>>>>> stable20
 		</span>
 		<Multiselect
 			label="label"

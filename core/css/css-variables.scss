@@ -42,11 +42,18 @@
 
 	--color-box-shadow: #{$color-box-shadow};
 
+<<<<<<< HEAD
 	--color-border: #{$color-border};
 	--color-border-dark: #{$color-border-dark};
 	--border-radius: #{$border-radius};
 	--border-radius-large: #{$border-radius-large};
 	--border-radius-pill: #{$border-radius-pill};
+=======
+	--font-face: $font-face;
+	--default-font-size: $default-font-size;
+
+	--default-line-height: $default-line-height;
+>>>>>>> stable20
 
 	--font-face: #{$font-face};
 	--default-font-size: #{$default-font-size};

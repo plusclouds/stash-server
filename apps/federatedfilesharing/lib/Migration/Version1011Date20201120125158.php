@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 /**
+=======
+/*
+>>>>>>> stable20
  * @copyright Copyright (c) 2020 Julius Härtl <jus@bitgrid.net>
  *
  * @author Julius Härtl <jus@bitgrid.net>
@@ -13,7 +17,11 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<<<<<<< HEAD
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+=======
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+>>>>>>> stable20
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
@@ -27,7 +35,11 @@ namespace OCA\FederatedFileSharing\Migration;
 
 use Closure;
 use Doctrine\DBAL\Types\Type;
+<<<<<<< HEAD
 use OCP\DB\Types;
+=======
+use Doctrine\DBAL\Types\Types;
+>>>>>>> stable20
 use OCP\DB\ISchemaWrapper;
 use OCP\IDBConnection;
 use OCP\Migration\IOutput;

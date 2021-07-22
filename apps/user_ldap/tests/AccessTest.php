@@ -65,8 +65,11 @@ use Test\TestCase;
 class AccessTest extends TestCase {
 	/** @var UserMapping|\PHPUnit\Framework\MockObject\MockObject */
 	protected $userMapper;
+<<<<<<< HEAD
 	/** @var IManager|\PHPUnit\Framework\MockObject\MockObject */
 	protected $shareManager;
+=======
+>>>>>>> stable20
 	/** @var GroupMapping|\PHPUnit\Framework\MockObject\MockObject */
 	protected $groupMapper;
 	/** @var Connection|\PHPUnit\Framework\MockObject\MockObject */
@@ -647,7 +650,11 @@ class AccessTest extends TestCase {
 	}
 
 	public function testFetchListOfGroupsKnown() {
+<<<<<<< HEAD
 		$filter = 'objectClass=nextcloudGroup';
+=======
+		$filter  = 'objectClass=nextcloudGroup';
+>>>>>>> stable20
 		$attributes = ['cn', 'gidNumber', 'dn'];
 		$base = 'ou=SomeGroups,dc=my,dc=directory';
 

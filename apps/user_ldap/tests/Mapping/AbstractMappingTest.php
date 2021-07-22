@@ -284,7 +284,11 @@ abstract class AbstractMappingTest extends \Test\TestCase {
 
 	public function testGetListOfIdsByDn() {
 		/** @var AbstractMapping $mapper */
+<<<<<<< HEAD
 		[$mapper,] = $this->initTest();
+=======
+		list($mapper,) = $this->initTest();
+>>>>>>> stable20
 
 		$listOfDNs = [];
 		for ($i = 0; $i < 66640; $i++) {

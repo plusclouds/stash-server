@@ -1,8 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2017 Lukas Reschke <lukas@statuscode.ch>
- *
- * @author Lukas Reschke <lukas@statuscode.ch>
+ * @copyright Copyright (c) 2019 Robin Appelman <robin@icewind.nl>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -17,8 +15,23 @@
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-opcache_reset();
+namespace Icewind\Streams;
+
+/**
+ * Wrapper that calculates the hash on the stream on write
+ *
+ * The stream and hash should be passed in when wrapping the stream.
+ * On close the callback will be called with the calculated checksum.
+ *
+ * For supported hashes see: http://php.net/manual/en/function.hash-algos.php
+ */
+class WriteHashWrapper extends HashWrapper {
+	public function stream_write($data) {
+		$this->updateHash($data);
+		return parent::stream_write($data);
+	}
+}

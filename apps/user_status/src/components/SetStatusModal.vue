@@ -60,10 +60,17 @@
 				:clear-at="clearAt"
 				@selectClearAt="setClearAt" />
 			<div class="status-buttons">
+<<<<<<< HEAD
 				<button class="status-buttons__select" :disabled="isSavingStatus" @click="clearStatus">
 					{{ $t('user_status', 'Clear status message') }}
 				</button>
 				<button class="status-buttons__primary primary" :disabled="isSavingStatus" @click="saveStatus">
+=======
+				<button class="status-buttons__select" @click="clearStatus">
+					{{ $t('user_status', 'Clear status message') }}
+				</button>
+				<button class="status-buttons__primary primary" @click="saveStatus">
+>>>>>>> stable20
 					{{ $t('user_status', 'Set status message') }}
 				</button>
 			</div>
@@ -100,8 +107,12 @@ export default {
 		return {
 			clearAt: null,
 			icon: null,
+<<<<<<< HEAD
 			message: '',
 			isSavingStatus: false,
+=======
+			message: null,
+>>>>>>> stable20
 			statuses: getAllStatusOptions(),
 		}
 	},

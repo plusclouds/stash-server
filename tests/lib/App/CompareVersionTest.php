@@ -56,7 +56,10 @@ class CompareVersionTest extends TestCase {
 			['7.4.14', '7.4', '<=', true],
 			['7.4.14-ubuntu', '7.4', '<=', true],
 			['7.4.14-ubuntu', '7.4.15', '<=', true],
+<<<<<<< HEAD
 			['7.4.16-ubuntu', '7.4.15', '<=', false],
+=======
+>>>>>>> stable20
 			// Incompatible major versions
 			['13.0.0.3', '13.0.0', '<', false],
 			['12.0.0', '13.0.0', '>=', false],

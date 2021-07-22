@@ -197,8 +197,11 @@ class Repair implements IOutput {
 			\OC::$server->query(EncryptionLegacyCipher::class),
 			\OC::$server->query(EncryptionMigration::class),
 			\OC::$server->get(ShippedDashboardEnable::class),
+<<<<<<< HEAD
 			\OC::$server->get(AddBruteForceCleanupJob::class),
 			\OC::$server->get(AddCheckForUserCertificatesJob::class),
+=======
+>>>>>>> stable20
 			\OC::$server->get(RepairDavShares::class)
 		];
 	}
@@ -231,8 +234,13 @@ class Repair implements IOutput {
 		$steps = [
 			new Collation(\OC::$server->getConfig(), \OC::$server->getLogger(), $connectionAdapter, true),
 			new SqliteAutoincrement($connection),
+<<<<<<< HEAD
 			new SaveAccountsTableData($connectionAdapter, $config),
 			new DropAccountTermsTable($connectionAdapter),
+=======
+			new SaveAccountsTableData($connection, $config),
+			new DropAccountTermsTable($connection),
+>>>>>>> stable20
 		];
 
 		return $steps;

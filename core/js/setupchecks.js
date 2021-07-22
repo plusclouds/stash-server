@@ -499,7 +499,10 @@
 					OC.SetupChecks.addGenericSetupCheck(data, 'OCA\\Settings\\SetupChecks\\PhpDefaultCharset', messages)
 					OC.SetupChecks.addGenericSetupCheck(data, 'OCA\\Settings\\SetupChecks\\PhpOutputBuffering', messages)
 					OC.SetupChecks.addGenericSetupCheck(data, 'OCA\\Settings\\SetupChecks\\LegacySSEKeyFormat', messages)
+<<<<<<< HEAD
 					OC.SetupChecks.addGenericSetupCheck(data, 'OCA\\Settings\\SetupChecks\\CheckUserCertificates', messages)
+=======
+>>>>>>> stable20
 					OC.SetupChecks.addGenericSetupCheck(data, 'OCA\\Settings\\SetupChecks\\SupportedDatabase', messages)
 
 				} else {

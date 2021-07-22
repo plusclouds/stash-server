@@ -25,7 +25,11 @@ declare(strict_types=1);
 
 namespace OCA\WorkflowEngine\Migration;
 
+<<<<<<< HEAD
 use OCP\DB\IResult;
+=======
+use Doctrine\DBAL\Driver\Statement;
+>>>>>>> stable20
 use OCP\IDBConnection;
 use OCP\Migration\IOutput;
 use OCP\Migration\IRepairStep;

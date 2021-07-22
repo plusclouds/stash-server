@@ -858,6 +858,7 @@ return array(
     'OC\\Core\\Command\\Maintenance\\UpdateHtaccess' => $baseDir . '/core/Command/Maintenance/UpdateHtaccess.php',
     'OC\\Core\\Command\\Maintenance\\UpdateTheme' => $baseDir . '/core/Command/Maintenance/UpdateTheme.php',
     'OC\\Core\\Command\\Preview\\Repair' => $baseDir . '/core/Command/Preview/Repair.php',
+    'OC\\Core\\Command\\Preview\\ResetRenderedTexts' => $baseDir . '/core/Command/Preview/ResetRenderedTexts.php',
     'OC\\Core\\Command\\Security\\ImportCertificate' => $baseDir . '/core/Command/Security/ImportCertificate.php',
     'OC\\Core\\Command\\Security\\ListCertificates' => $baseDir . '/core/Command/Security/ListCertificates.php',
     'OC\\Core\\Command\\Security\\RemoveCertificate' => $baseDir . '/core/Command/Security/RemoveCertificate.php',
@@ -947,11 +948,14 @@ return array(
     'OC\\Core\\Migrations\\Version20000Date20201109081919' => $baseDir . '/core/Migrations/Version20000Date20201109081919.php',
     'OC\\Core\\Migrations\\Version20000Date20201111081915' => $baseDir . '/core/Migrations/Version20000Date20201111081915.php',
     'OC\\Core\\Migrations\\Version21000Date20201120141228' => $baseDir . '/core/Migrations/Version21000Date20201120141228.php',
+<<<<<<< HEAD
     'OC\\Core\\Migrations\\Version21000Date20201202095923' => $baseDir . '/core/Migrations/Version21000Date20201202095923.php',
     'OC\\Core\\Migrations\\Version21000Date20210119195004' => $baseDir . '/core/Migrations/Version21000Date20210119195004.php',
     'OC\\Core\\Migrations\\Version21000Date20210309185126' => $baseDir . '/core/Migrations/Version21000Date20210309185126.php',
     'OC\\Core\\Migrations\\Version21000Date20210309185127' => $baseDir . '/core/Migrations/Version21000Date20210309185127.php',
     'OC\\Core\\Migrations\\Version22000Date20210216080825' => $baseDir . '/core/Migrations/Version22000Date20210216080825.php',
+=======
+>>>>>>> stable20
     'OC\\Core\\Notification\\CoreNotifier' => $baseDir . '/core/Notification/CoreNotifier.php',
     'OC\\Core\\Service\\LoginFlowV2Service' => $baseDir . '/core/Service/LoginFlowV2Service.php',
     'OC\\DB\\Adapter' => $baseDir . '/lib/private/DB/Adapter.php',

@@ -577,7 +577,11 @@ class Server extends ServerContainer implements IServerContainer {
 				\OC_Hook::emit('OC_User', 'post_login', ['run' => true, 'uid' => $user->getUID(), 'loginName' => $loginName, 'password' => $password, 'isTokenLogin' => $isTokenLogin]);
 
 				/** @var IEventDispatcher $dispatcher */
+<<<<<<< HEAD
 				$dispatcher = $this->get(IEventDispatcher::class);
+=======
+				$dispatcher = $this->query(IEventDispatcher::class);
+>>>>>>> stable20
 				$dispatcher->dispatchTyped(new UserLoggedInEvent($user, $loginName, $password, $isTokenLogin));
 			});
 			$userSession->listen('\OC\User', 'preRememberedLogin', function ($uid) {
@@ -1114,6 +1118,7 @@ class Server extends ServerContainer implements IServerContainer {
 				return new ThemingDefaults(
 					$c->get(\OCP\IConfig::class),
 					$c->getL10N('theming'),
+<<<<<<< HEAD
 					$c->get(IURLGenerator::class),
 					$c->get(ICacheFactory::class),
 					new Util($c->get(\OCP\IConfig::class), $this->get(IAppManager::class), $c->getAppDataDir('theming')),
@@ -1127,6 +1132,14 @@ class Server extends ServerContainer implements IServerContainer {
 					),
 					$c->get(IAppManager::class),
 					$c->get(INavigationManager::class)
+=======
+					$c->getURLGenerator(),
+					$c->getMemCacheFactory(),
+					new Util($c->getConfig(), $this->getAppManager(), $c->getAppDataDir('theming')),
+					new ImageManager($c->getConfig(), $c->getAppDataDir('theming'), $c->getURLGenerator(), $this->getMemCacheFactory(), $this->getLogger(), $this->getTempManager()),
+					$c->getAppManager(),
+					$c->getNavigationManager()
+>>>>>>> stable20
 				);
 			}
 			return new \OC_Defaults();
@@ -1252,7 +1265,11 @@ class Server extends ServerContainer implements IServerContainer {
 			);
 		});
 
+<<<<<<< HEAD
 		$this->registerService(ICloudIdManager::class, function (ContainerInterface $c) {
+=======
+		$this->registerService(ICloudIdManager::class, function (Server $c) {
+>>>>>>> stable20
 			return new CloudIdManager($c->get(\OCP\Contacts\IManager::class));
 		});
 

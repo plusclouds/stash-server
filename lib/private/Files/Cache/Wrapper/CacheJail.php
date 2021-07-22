@@ -256,7 +256,11 @@ class CacheJail extends CacheWrapper {
 			->whereStorageId()
 			->andWhere($query->expr()->orX(
 				$query->expr()->like('path', $query->createNamedParameter($this->getGetUnjailedRoot() . '/%')),
+<<<<<<< HEAD
 				$query->expr()->eq('path_hash', $query->createNamedParameter(md5($this->getGetUnjailedRoot()))),
+=======
+				$query->expr()->eq('path_hash', $query->createNamedParameter(md5($this->getGetUnjailedRoot())))
+>>>>>>> stable20
 			))
 			->andWhere($query->expr()->iLike('name', $query->createNamedParameter($pattern)));
 
@@ -284,7 +288,11 @@ class CacheJail extends CacheWrapper {
 			->whereStorageId()
 			->andWhere($query->expr()->orX(
 				$query->expr()->like('path', $query->createNamedParameter($this->getGetUnjailedRoot() . '/%')),
+<<<<<<< HEAD
 				$query->expr()->eq('path_hash', $query->createNamedParameter(md5($this->getGetUnjailedRoot()))),
+=======
+				$query->expr()->eq('path_hash', $query->createNamedParameter(md5($this->getGetUnjailedRoot())))
+>>>>>>> stable20
 			));
 
 		if (strpos($mimetype, '/')) {

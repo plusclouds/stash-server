@@ -8,10 +8,8 @@ OC.L10N.register(
     "Sending…" : "Küldés…",
     "Email sent" : "E-mail elküldve",
     "Private" : "Privát",
-    "Don't synchronize to servers" : "Ne szinkronizáljon kiszolgálókkal",
-    "Trusted" : "Megbízható",
+    "Local" : "Helyi",
     "Only synchronize to trusted servers" : "Csak megbízható kiszolgálókkal szinkronizáljon",
-    "Public" : "Nyilvános",
     "Synchronize to trusted servers and the global and public address book" : "Szinkronizáljon megbízható kiszolgálókkal, valamint a globális és nyilvános címjegyzékkel",
     "Verify" : "Ellenőrzés",
     "Verifying …" : "Ellenőrzés…",
@@ -370,11 +368,9 @@ OC.L10N.register(
     "Expire after " : "A lejárat legyen",
     "days" : "nap",
     "Enforce expiration date" : "A beállított lejárati idő legyen kötelezően érvényes",
-    "Allow users to share via link" : "Engedjük meg a fájlok hivatkozással történő megosztását",
     "Allow public uploads" : "Nyilvános feltöltés engedélyezése",
     "Always ask for a password" : "Mindig kérdezze meg a jelszót",
     "Enforce password protection" : "Legyen kötelező a linkek jelszóval való védelme",
-    "Set default expiration date for link shares" : "A megosztás hivatozásának általános lejárati idejének beállítása",
     "Allow resharing" : "A megosztás továbbadásának engedélyezése",
     "Allow sharing with groups" : "Megosztás engedélyezése a csoportokkal",
     "Restrict users to only share with users in their groups" : "A csoporttagok csak a saját csoportjukon belül oszthassanak meg anyagokat",
@@ -382,8 +378,11 @@ OC.L10N.register(
     "These groups will still be able to receive shares, but not to initiate them." : "E csoportok tagjaival meg lehet osztani anyagokat, de ők nem hozhatnak létre megosztást.",
     "Allow username autocompletion in share dialog" : "A felhasználónév automatikus kiegészítésének engedélyezése a megosztás párbeszédpanelen ",
     "Allow username autocompletion to users within the same groups" : "Engedélyezze a felhasználónév automatikus kiegészítését az azonos csoportokba tartozó felhasználók számára ",
+<<<<<<< HEAD
     "Allow username autocompletion to users based on phonebook matches" : "Engedélyezze  a felhasználóknak a felhasználónév automatikus kiegészítését a telefonkönyv-egyezések alapján ",
     "If autocompletion \"same group\" and \"phonebook matches\" are enabled a match in either is enough to show the user." : "Ha az \"ugyanazon csoport\" és a \"telefonkönyv-egyezések\" automatikus kiegészítése engedélyezve van, akkor bármelyik egyezés elegendő a felhasználó megjelenítéséhez. ",
+=======
+>>>>>>> stable20
     "Allow username autocompletion when entering the full name or email address (ignoring missing phonebook match and being in the same group)" : "Engedélyezze a felhasználónév automatikus kiegészítését a teljes név vagy e-mail cím megadásakor (figyelmen kívül hagyva a hiányzó telefonkönyv-egyezést és az ugyanabba a csoportba tartozást) ",
     "Show disclaimer text on the public link upload page (only shown when the file list is hidden)" : "Nyilatkozat szövegének megjelenítése a nyilvános feltöltési oldalon. (Csak akkor jelenik meg, ha fájl lista rejtett.)",
     "This text will be shown on the public link upload page when the file list is hidden." : "Ez a szöveg jelenik meg a nyilvános feltöltési oldalon, amikor a fájl lista el van rejtve.",
@@ -428,11 +427,11 @@ OC.L10N.register(
     "If you use third party applications to connect to Nextcloud, please make sure to create and configure an app password for each before enabling second factor authentication." : "Ha harmadik féltől származó alkalmazásokat használ a Nextcloudhoz való csatlakozáshoz, akkor a két faktoros hitelesítés engedélyezése előtt győződjön meg róla, hogy mindegyikhez létrehozott és konfigurált egy alkalmazás jelszót. ",
     "An error occurred. Please upload an ASCII-encoded PEM certificate." : "Hiba történt. Töltsön fel egy ASCII karakterekkel kódolt PEM-tanúsítványt.",
     "Valid until {date}" : "Érvényes: {date}",
-    "Local" : "Helyi",
     "Only visible to local users" : "Csak a helyi felhasználók láthatják",
     "Only visible to you" : "Csak Ön láthatja",
     "Contacts" : "Névjegyek",
     "Visible to local users and to trusted servers" : "Helyi felhasználók és megbízható kiszolgálók láthatják",
+    "Public" : "Nyilvános",
     "Will be synced to a global and public address book" : "Globális és nyilvános címjegyzékekkel lesz szinkronizálva",
     "by" : "által",
     "SSL Root Certificates" : "SSL Root tanusítványok",
@@ -442,9 +441,19 @@ OC.L10N.register(
     "Valid until %s" : "Érvényes: %s",
     "Import root certificate" : "Gyökértanúsítvány importálása",
     "Execute one task with each page loaded" : "Egy-egy feladat végrehajtása minden alkalommal, amikor egy weboldalt letöltenek",
+<<<<<<< HEAD
     "Allow username autocompletion in share dialog. If this is disabled the full username or email address needs to be entered." : "Felhasználónevek automatikus kiegészítésének engedélyezése a megosztási ablakban. Ha ki van kapcsolva, teljes felhasználóneveket vagy e-mail címeket kell begépelni.",
     "Restrict username autocompletion to users within the same groups" : "Korlátozza a felhasználónevek automata kiegészítését azonos csoportokon belül",
     "Show disclaimer text on the public link upload page. (Only shown when the file list is hidden.)" : "Nyilatkozat szövegének megjelenítése a nyilvános feltöltési oldalon. (Csak akkor jelenik meg, ha fájl lista rejtett.)",
+=======
+    "Allow users to share via link" : "Engedjük meg a fájlok hivatkozással történő megosztását",
+    "Set default expiration date for link shares" : "A megosztás hivatozásának általános lejárati idejének beállítása",
+    "Allow username autocompletion in share dialog. If this is disabled the full username or email address needs to be entered." : "Felhasználónevek automatikus kiegészítésének engedélyezése a megosztási ablakban. Ha ki van kapcsolva, teljes felhasználóneveket vagy e-mail címeket kell begépelni.",
+    "Restrict username autocompletion to users within the same groups" : "Korlátozza a felhasználónevek automata kiegészítését azonos csoportokon belül",
+    "Show disclaimer text on the public link upload page. (Only shown when the file list is hidden.)" : "Nyilatkozat szövegének megjelenítése a nyilvános feltöltési oldalon. (Csak akkor jelenik meg, ha fájl lista rejtett.)",
+    "Don't synchronize to servers" : "Ne szinkronizáljon kiszolgálókkal",
+    "Trusted" : "Megbízható",
+>>>>>>> stable20
     "Allow username autocompletion in share dialog (if this is disabled the full username or email address needs to be entered)" : "Felhasználónevek automatikus kiegészítésének engedélyezése a megosztási ablakban. Ha ki van kapcsolva, teljes felhasználóneveket vagy e-mail címeket kell begépelni."
 },
 "nplurals=2; plural=(n != 1);");

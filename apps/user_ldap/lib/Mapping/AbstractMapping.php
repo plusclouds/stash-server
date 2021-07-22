@@ -29,7 +29,10 @@ namespace OCA\User_LDAP\Mapping;
 
 use Doctrine\DBAL\Exception;
 use OC\DB\QueryBuilder\QueryBuilder;
+<<<<<<< HEAD
 use OCP\DB\IPreparedStatement;
+=======
+>>>>>>> stable20
 use OCP\DB\QueryBuilder\IQueryBuilder;
 
 /**

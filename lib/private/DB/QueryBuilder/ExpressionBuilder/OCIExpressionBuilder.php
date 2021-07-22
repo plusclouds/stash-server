@@ -170,7 +170,11 @@ class OCIExpressionBuilder extends ExpressionBuilder {
 			$column = $this->helper->quoteColumnName($column);
 			return new QueryFunction('to_char(' . $column . ')');
 		}
+<<<<<<< HEAD
 		if ($type === IQueryBuilder::PARAM_INT) {
+=======
+		if ($type === IQueryBuilder::PARAM_INT || $type === IQueryBuilder::PARAM_BOOL) {
+>>>>>>> stable20
 			$column = $this->helper->quoteColumnName($column);
 			return new QueryFunction('to_number(to_char(' . $column . '))');
 		}
@@ -188,7 +192,11 @@ class OCIExpressionBuilder extends ExpressionBuilder {
 	/**
 	 * @inheritdoc
 	 */
+<<<<<<< HEAD
 	public function iLike($x, $y, $type = null): string {
+=======
+	public function iLike($x, $y, $type = null) {
+>>>>>>> stable20
 		return $this->like($this->functionBuilder->lower($x), $this->functionBuilder->lower($y));
 	}
 }

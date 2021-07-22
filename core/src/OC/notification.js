@@ -125,7 +125,11 @@ export default {
 		}
 
 		options = options || {}
+<<<<<<< HEAD
 		options.timeout = (!options.timeout) ? TOAST_PERMANENT_TIMEOUT : options.timeout
+=======
+		options.timeout = (!options.timeout) ? -1 : options.timeout
+>>>>>>> stable20
 		const toast = showMessage(escapeHTML(text), options)
 		toast.toastElement.toastify = toast
 		return $(toast.toastElement)

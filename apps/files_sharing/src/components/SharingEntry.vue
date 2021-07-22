@@ -29,10 +29,14 @@
 			:tooltip-message="share.type === SHARE_TYPES.SHARE_TYPE_USER ? share.shareWith : ''"
 			:menu-position="'left'"
 			:url="share.shareWithAvatar" />
+<<<<<<< HEAD
 		<component :is="share.shareWithLink ? 'a' : 'div'"
 			v-tooltip.auto="tooltip"
 			:href="share.shareWithLink"
 			class="sharing-entry__desc">
+=======
+		<div v-tooltip.auto="tooltip" class="sharing-entry__desc">
+>>>>>>> stable20
 			<h5>{{ title }}<span v-if="!isUnique" class="sharing-entry__desc-unique"> ({{ share.shareWithDisplayNameUnique }})</span></h5>
 			<p v-if="hasStatus">
 				<span>{{ share.status.icon || '' }}</span>

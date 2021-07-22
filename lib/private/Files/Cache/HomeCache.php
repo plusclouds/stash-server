@@ -66,7 +66,11 @@ class HomeCache extends Cache {
 			$result->closeCursor();
 
 			if ($row) {
+<<<<<<< HEAD
 				[$sum] = array_values($row);
+=======
+				list($sum) = array_values($row);
+>>>>>>> stable20
 				$totalSize = 0 + $sum;
 				$entry['size'] += 0;
 				if ($entry['size'] !== $totalSize) {

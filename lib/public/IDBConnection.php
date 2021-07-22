@@ -60,6 +60,7 @@ interface IDBConnection {
 	 * @deprecated 22.0.0 this is an internal event
 	 */
 	public const CHECK_MISSING_INDEXES_EVENT = self::class . '::CHECK_MISSING_INDEXES';
+<<<<<<< HEAD
 
 	/**
 	 * @deprecated 22.0.0 this is an internal event
@@ -74,6 +75,10 @@ interface IDBConnection {
 	/**
 	 * @deprecated 22.0.0 this is an internal event
 	 */
+=======
+	public const ADD_MISSING_PRIMARY_KEYS_EVENT = self::class . '::ADD_MISSING_PRIMARY_KEYS';
+	public const CHECK_MISSING_PRIMARY_KEYS_EVENT = self::class . '::CHECK_MISSING_PRIMARY_KEYS';
+>>>>>>> stable20
 	public const ADD_MISSING_COLUMNS_EVENT = self::class . '::ADD_MISSING_COLUMNS';
 
 	/**

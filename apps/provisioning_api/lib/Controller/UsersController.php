@@ -431,12 +431,20 @@ class UsersController extends AUserData {
 					} catch (\Exception $e) {
 						// Mail could be failing hard or just be plain not configured
 						// Logging error as it is the hardest of the two
+<<<<<<< HEAD
 						$this->logger->error("Unable to send the invitation mail to $email",
 							[
 								'app' => 'ocs_api',
 								'exception' => $e,
 							]
 						);
+=======
+						$this->logger->logException($e, [
+							'message' => "Unable to send the invitation mail to $email",
+							'level' => ILogger::ERROR,
+							'app' => 'ocs_api',
+						]);
+>>>>>>> stable20
 					}
 				}
 			}

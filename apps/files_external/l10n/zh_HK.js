@@ -28,9 +28,15 @@ OC.L10N.register(
     "Saving …" : "儲存中 ...",
     "Save" : "儲存",
     "Empty response from the server" : "伺服器没有回應",
+<<<<<<< HEAD
     "Couldn't access. Please log out and in again to activate this mount point" : "無法存取，請登出後重新登入來啟用這個掛載點。",
     "Couldn't get the information from the remote server: {code} {type}" : "無法從遠程伺服器上獲取資料 : {code} {type}",
     "Couldn't get the list of external mount points: {type}" : "無法得到外部掛載點的列表: {type}",
+=======
+    "Couldn't access. Please log out and in again to activate this mount point" : "無法存取，請登出後重新登入來啟動這個掛載點。",
+    "Couldn't get the information from the remote server: {code} {type}" : "無法從遠程伺服器上獲取資料：{code} {type}",
+    "Couldn't get the list of external mount points: {type}" : "無法得到外部掛載點的列表： {type}",
+>>>>>>> stable20
     "There was an error with message: " : "錯誤信息﹕",
     "External mount error" : "外部掛載錯誤",
     "external-storage" : "外部儲存",
@@ -88,6 +94,7 @@ OC.L10N.register(
     "Region" : "地區",
     "Enable SSL" : "啟用 SSL",
     "Enable Path Style" : "啟用路徑格式",
+<<<<<<< HEAD
     "Legacy (v2) authentication" : "Legacy (v2) 驗證",
     "WebDAV" : "WebDAV",
     "URL" : "URL",
@@ -96,6 +103,16 @@ OC.L10N.register(
     "FTP" : "檔案傳輸協定-FTP",
     "Host" : "主機",
     "Secure ftps://" : "安全 ftps://",
+=======
+    "Legacy (v2) authentication" : "Legacy（v2）驗證",
+    "WebDAV" : "WebDAV",
+    "URL" : "URL",
+    "Remote subfolder" : "遠端子資料夾",
+    "Secure https://" : "安全 https：//",
+    "FTP" : "檔案傳輸協定-FTP",
+    "Host" : "主機",
+    "Secure ftps://" : "安全 ftps：//",
+>>>>>>> stable20
     "Local" : "本地",
     "Location" : "地點",
     "Nextcloud" : "Nextcloud",
@@ -112,7 +129,11 @@ OC.L10N.register(
     "Username as share" : "以用戶名稱分享",
     "OpenStack Object Storage" : "OpenStack 物件儲存",
     "Service name" : "服務名稱",
+<<<<<<< HEAD
     "Request timeout (seconds)" : "請求超時 (秒)",
+=======
+    "Request timeout (seconds)" : "請求超時（秒)",
+>>>>>>> stable20
     "The cURL support in PHP is not enabled or installed. Mounting of %s is not possible. Please ask your system administrator to install it." : "PHP中的cURL支援既未啟用也未安裝。無法安裝 %s。請要求您的系統管理員進行安裝。",
     "The FTP support in PHP is not enabled or installed. Mounting of %s is not possible. Please ask your system administrator to install it." : "PHP中的FTP支持既未啟用也未安裝。無法安裝 %s。請要求您的系統管理員進行安裝。",
     "\"%1$s\" is not installed. Mounting of %2$s is not possible. Please ask your system administrator to install it." : "未安裝 “%1$s”。無法安裝 %2$s。請要求系統管理員進行安裝。",

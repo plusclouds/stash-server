@@ -4,7 +4,11 @@ OC.L10N.register(
     "Dashboard" : "Nástěnka",
     "Dashboard app" : "Aplikace Nástěnka",
     "Show something" : "Zobrazit něco",
+<<<<<<< HEAD
     "Customize" : "Přizpůsobit",
+=======
+    "Customize" : "Přizpůsobit si",
+>>>>>>> stable20
     "Edit widgets" : "Upravit ovládací prvky",
     "Get more widgets from the app store" : "Získejte další ovládací prvky z katalogu aplikací",
     "Change background image" : "Změnit obrázek na pozadí",

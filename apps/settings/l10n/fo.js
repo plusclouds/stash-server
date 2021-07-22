@@ -4,7 +4,10 @@ OC.L10N.register(
     "Saved" : "Goymt",
     "Email sent" : "Sendi t-post",
     "Private" : "Privat",
+<<<<<<< HEAD
     "Public" : "Alment",
+=======
+>>>>>>> stable20
     "Unable to change password" : "Kundi ikki broyta loyniorðið",
     "Select a profile picture" : "Vel ein profil mynd",
     "Groups" : "Bólkar",
@@ -100,6 +103,11 @@ OC.L10N.register(
     "Twitter" : "Twitter",
     "Current password" : "Núverandi loyniorð",
     "New password" : "Nýtt loyniorð",
+<<<<<<< HEAD
     "Change password" : "Broyd loyniorð"
+=======
+    "Change password" : "Broyd loyniorð",
+    "Public" : "Alment"
+>>>>>>> stable20
 },
 "nplurals=2; plural=(n != 1);");

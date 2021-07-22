@@ -71,7 +71,11 @@ class RepairMimeTypes implements IRepairStep {
 		if (empty($this->folderMimeTypeId)) {
 			$query->setParameter('mimetype', 'httpd/unix-directory');
 			$result = $query->execute();
+<<<<<<< HEAD
 			$this->folderMimeTypeId = (int)$result->fetchOne();
+=======
+			$this->folderMimeTypeId = (int)$result->fetchColumn();
+>>>>>>> stable20
 			$result->closeCursor();
 		}
 
@@ -88,7 +92,11 @@ class RepairMimeTypes implements IRepairStep {
 			// get target mimetype id
 			$query->setParameter('mimetype', $mimetype);
 			$result = $query->execute();
+<<<<<<< HEAD
 			$mimetypeId = (int)$result->fetchOne();
+=======
+			$mimetypeId = (int)$result->fetchColumn();
+>>>>>>> stable20
 			$result->closeCursor();
 
 			if (!$mimetypeId) {

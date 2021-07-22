@@ -52,7 +52,11 @@ class CleanPreviewsBackgroundJobTest extends TestCase {
 	/** @var  IUserManager|\PHPUnit_Framework_MockObject_MockObject */
 	private $userManager;
 
+<<<<<<< HEAD
 	public function setUp() {
+=======
+	public function setUp(): void {
+>>>>>>> stable20
 		parent::setUp();
 
 		$this->rootFolder = $this->createMock(IRootFolder::class);

@@ -19,8 +19,13 @@
         "ext-xmlreader": "*"
 	},
     "require-dev": {
+<<<<<<< HEAD
         "nextcloud/coding-standard": "^0.5.0",
         "vimeo/psalm": "^4.0"
+=======
+        "nextcloud/coding-standard": "^0.3.0",
+        "vimeo/psalm": "3.15"
+>>>>>>> stable20
     },
     "scripts": {
         "cs:fix": "php-cs-fixer fix",

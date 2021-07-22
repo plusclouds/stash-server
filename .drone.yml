@@ -223,6 +223,14 @@ steps:
   image: docker:git
   commands:
     - git submodule update --init
+<<<<<<< HEAD
+=======
+- name: nodb-php7.2
+  image: nextcloudci/php7.2:latest
+  commands:
+    - bash tests/drone-run-php-tests.sh || exit 0
+    - NOCOVERAGE=true TEST_SELECTION=NODB ./autotest.sh sqlite
+>>>>>>> stable20
 - name: nodb-php7.3
   image: nextcloudci/php7.3:php7.3-5
   commands:
@@ -260,6 +268,14 @@ steps:
   image: docker:git
   commands:
     - git submodule update --init
+<<<<<<< HEAD
+=======
+- name: sqlite-php7.2
+  image: nextcloudci/php7.2:php7.2-13
+  commands:
+    - bash tests/drone-run-php-tests.sh || exit 0
+    - NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh sqlite
+>>>>>>> stable20
 - name: sqlite-php7.3
   image: nextcloudci/php7.3:php7.3-5
   commands:
@@ -269,11 +285,14 @@ steps:
   image: nextcloudci/php7.4:php7.4-3
   commands:
     - bash tests/drone-run-php-tests.sh || exit 0
+<<<<<<< HEAD
     - NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh sqlite
 - name: sqlite-php8.0
   image: nextcloudci/php8.0:latest
   commands:
     - bash tests/drone-run-php-tests.sh || exit 0
+=======
+>>>>>>> stable20
     - NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh sqlite
 
 services:
@@ -475,7 +494,44 @@ trigger:
 
 ---
 kind: pipeline
+<<<<<<< HEAD
 name: postgres9.6-php7.3
+=======
+name: mysql5.7-php7.2
+
+steps:
+- name: submodules
+  image: docker:git
+  commands:
+    - git submodule update --init
+- name: mysql-php7.2
+  image: nextcloudci/php7.2:php7.2-13
+  commands:
+    - bash tests/drone-run-php-tests.sh || exit 0
+    - NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh mysql
+
+services:
+- name: mysql
+  image: mysql:5.7
+  environment:
+    MYSQL_ROOT_PASSWORD: owncloud
+    MYSQL_USER: oc_autotest
+    MYSQL_PASSWORD: owncloud
+    MYSQL_DATABASE: oc_autotest
+  tmpfs:
+    - /var/lib/mysql
+
+trigger:
+  branch:
+    - master
+    - stable*
+  event:
+    - push
+
+---
+kind: pipeline
+name: mysql5.7-php7.3
+>>>>>>> stable20
 
 steps:
 - name: submodules
@@ -486,8 +542,12 @@ steps:
   image: nextcloudci/php7.3:php7.3-5
   commands:
     - bash tests/drone-run-php-tests.sh || exit 0
+<<<<<<< HEAD
     - sleep 10 # gives the database enough time to initialize
     - POSTGRES=9 NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh pgsql
+=======
+    - NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh mysql
+>>>>>>> stable20
 
 services:
 - name: cache
@@ -522,8 +582,12 @@ steps:
   image: nextcloudci/php7.3:php7.3-5
   commands:
     - bash tests/drone-run-php-tests.sh || exit 0
+<<<<<<< HEAD
     - sleep 10 # gives the database enough time to initialize
     - POSTGRES=10 NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh pgsql
+=======
+    - NOCOVERAGE=true TEST_SELECTION=DB ./autotest.sh mysql
+>>>>>>> stable20
 
 services:
 - name: cache
@@ -1378,7 +1442,7 @@ steps:
   commands:
     # JavaScript files are not used in integration tests so it is not needed to
     # build them.
-    - git clone --depth 1 https://github.com/nextcloud/spreed apps/spreed
+    - git clone --branch stable20 --depth 1 https://github.com/nextcloud/spreed apps/spreed
 - name: integration-sharing-v1-video-verification
   image: nextcloudci/integration-php7.3:integration-php7.3-2
   commands:
